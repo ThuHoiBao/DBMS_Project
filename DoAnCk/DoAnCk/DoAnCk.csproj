@@ -263,6 +263,42 @@
     <Compile Include="RegFaceForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="RoleOwner\CourseOwner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoleOwner\CourseOwner.Designer.cs">
+      <DependentUpon>CourseOwner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoleOwner\MainOwner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoleOwner\MainOwner.Designer.cs">
+      <DependentUpon>MainOwner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoleOwner\TeacherOwner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoleOwner\TeacherOwner.Designer.cs">
+      <DependentUpon>TeacherOwner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoleStudent\Course.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoleStudent\Course.Designer.cs">
+      <DependentUpon>Course.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoleStudent\Document.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoleStudent\Document.Designer.cs">
+      <DependentUpon>Document.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoleStudent\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoleStudent\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="RoleTeacher\CourseTeacherForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -367,6 +403,24 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RoleOwner\CourseOwner.resx">
+      <DependentUpon>CourseOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoleOwner\MainOwner.resx">
+      <DependentUpon>MainOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoleOwner\TeacherOwner.resx">
+      <DependentUpon>TeacherOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoleStudent\Course.resx">
+      <DependentUpon>Course.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoleStudent\Document.resx">
+      <DependentUpon>Document.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoleStudent\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RoleTeacher\CourseTeacherForm.resx">
       <DependentUpon>CourseTeacherForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -579,6 +633,7 @@
     <Content Include="Resources\user %281%29.png" />
     <Content Include="Resources\z5379577495012_2d910f9d1027aa4c4bb036d2b9c19334.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

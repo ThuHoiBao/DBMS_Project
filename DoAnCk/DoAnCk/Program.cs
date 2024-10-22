@@ -1,4 +1,6 @@
-﻿using DoAnCk.RoleTeacher;
+﻿using DoAnCk.RoleOwner;
+using DoAnCk.RoleStudent;
+using DoAnCk.RoleTeacher;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +19,7 @@ namespace DoAnCk
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainOfTeacherForm());
+            Application.Run(new MainOwner());
 
         }
     }

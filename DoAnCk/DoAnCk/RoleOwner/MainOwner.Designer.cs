@@ -1,6 +1,6 @@
-﻿namespace DoAnCk.RoleTeacher
+﻿namespace DoAnCk.RoleOwner
 {
-    partial class MainOfTeacherForm
+    partial class MainOwner
     {
         /// <summary>
         /// Required designer variable.
@@ -55,8 +55,7 @@
             this.guna2Panel1.Location = new System.Drawing.Point(232, -2);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1545, 86);
-            this.guna2Panel1.TabIndex = 11;
-            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            this.guna2Panel1.TabIndex = 15;
             // 
             // guna2HtmlLabel1
             // 
@@ -69,7 +68,6 @@
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(357, 59);
             this.guna2HtmlLabel1.TabIndex = 0;
             this.guna2HtmlLabel1.Text = "Home Page";
-            this.guna2HtmlLabel1.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
             // 
             // panel1
             // 
@@ -80,8 +78,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 83);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(233, 754);
-            this.panel1.TabIndex = 10;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.TabIndex = 14;
             // 
             // panel2
             // 
@@ -92,8 +89,7 @@
             this.panel2.Location = new System.Drawing.Point(0, -2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(233, 85);
-            this.panel2.TabIndex = 9;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.panel2.TabIndex = 13;
             // 
             // guna2Panel2
             // 
@@ -101,7 +97,6 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(949, 547);
             this.guna2Panel2.TabIndex = 8;
-            this.guna2Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
             // lblUserName
             // 
@@ -115,7 +110,6 @@
             this.lblUserName.TabIndex = 2;
             this.lblUserName.Text = "Trần Anh Thư";
             this.lblUserName.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblUserName.Click += new System.EventHandler(this.lblUserName_Click);
             // 
             // panelHome
             // 
@@ -125,7 +119,7 @@
             this.panelHome.Location = new System.Drawing.Point(232, 83);
             this.panelHome.Name = "panelHome";
             this.panelHome.Size = new System.Drawing.Size(1545, 750);
-            this.panelHome.TabIndex = 12;
+            this.panelHome.TabIndex = 16;
             this.panelHome.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHome_Paint);
             // 
             // guna2PictureBox1
@@ -138,7 +132,6 @@
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 1;
             this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // guna2Button1
             // 
@@ -178,7 +171,6 @@
             this.btnClose.Size = new System.Drawing.Size(236, 59);
             this.btnClose.TabIndex = 4;
             this.btnClose.Text = "Close";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnTeacher
             // 
@@ -197,7 +189,7 @@
             this.btnTeacher.Name = "btnTeacher";
             this.btnTeacher.Size = new System.Drawing.Size(233, 59);
             this.btnTeacher.TabIndex = 0;
-            this.btnTeacher.Text = "Account";
+            this.btnTeacher.Text = "Teacher";
             this.btnTeacher.Click += new System.EventHandler(this.btnTeacher_Click);
             // 
             // picImage
@@ -211,9 +203,8 @@
             this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picImage.TabIndex = 1;
             this.picImage.TabStop = false;
-            this.picImage.Click += new System.EventHandler(this.picImage_Click);
             // 
-            // MainOfTeacherForm
+            // MainOwner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -223,8 +214,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "MainOfTeacherForm";
-            this.Text = "MainTeacherForm";
+            this.Name = "MainOwner";
+            this.Text = "MainOwner";
             this.guna2Panel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

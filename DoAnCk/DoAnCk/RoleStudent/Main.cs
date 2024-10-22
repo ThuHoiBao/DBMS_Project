@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoAnCk.RoleTeacher;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,25 +9,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DoAnCk.RoleTeacher
+namespace DoAnCk.RoleStudent
 {
-    public partial class MainOfTeacherForm : Form
+    public partial class Main : Form
     {
         Form currentForm = null;
-        public MainOfTeacherForm()
+        public Main()
         {
             InitializeComponent();
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            CourseTeacherForm courseTeacherForm = new CourseTeacherForm(this);
-            OpenForm(courseTeacherForm);
-        }
-
-        private void panelHome_Paint(object sender, PaintEventArgs e)
-        {
-
+            Course courseForm = new Course(this);
+            OpenForm(courseForm);
         }
         public void OpenForm(Form f)
         {
@@ -59,52 +55,12 @@ namespace DoAnCk.RoleTeacher
             f.Show();
         }
 
-        private void btnTeacher_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-       
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lblUserName_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void guna2PictureBox1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void picImage_Click(object sender, EventArgs e)
+        private void panelHome_Paint(object sender, PaintEventArgs e)
         {
 
         }

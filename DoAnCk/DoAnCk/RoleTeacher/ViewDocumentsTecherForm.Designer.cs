@@ -31,29 +31,29 @@
             this.components = new System.ComponentModel.Container();
             this.panelListDocument = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.btnEditDocument = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.btnRemoveDocument = new Guna.UI2.WinForms.Guna2GradientButton();
             this.lblSTT = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtContent = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.btnAddDocument = new Guna.UI2.WinForms.Guna2GradientButton();
             this.txtTitle = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panelAccount = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtIdDocument = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2GradientButton3 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblIdCourse = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.btnRemoveDocument = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientButton6 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.picImage = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.txtIdDocument = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.btnEditDocument = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.btnAddDocument = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel2.SuspendLayout();
             this.panelAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -80,44 +80,6 @@
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(208, 27);
             this.guna2HtmlLabel2.TabIndex = 7;
             this.guna2HtmlLabel2.Text = "Ảnh ";
-            // 
-            // btnEditDocument
-            // 
-            this.btnEditDocument.BorderRadius = 5;
-            this.btnEditDocument.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditDocument.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditDocument.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEditDocument.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEditDocument.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEditDocument.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnEditDocument.FillColor2 = System.Drawing.Color.Teal;
-            this.btnEditDocument.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnEditDocument.ForeColor = System.Drawing.Color.White;
-            this.btnEditDocument.Location = new System.Drawing.Point(206, 590);
-            this.btnEditDocument.Name = "btnEditDocument";
-            this.btnEditDocument.Size = new System.Drawing.Size(136, 43);
-            this.btnEditDocument.TabIndex = 20;
-            this.btnEditDocument.Text = "Edit";
-            this.btnEditDocument.Click += new System.EventHandler(this.btnEditDocument_Click);
-            // 
-            // btnRemoveDocument
-            // 
-            this.btnRemoveDocument.BorderRadius = 5;
-            this.btnRemoveDocument.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnRemoveDocument.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnRemoveDocument.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnRemoveDocument.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnRemoveDocument.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRemoveDocument.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnRemoveDocument.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnRemoveDocument.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnRemoveDocument.ForeColor = System.Drawing.Color.White;
-            this.btnRemoveDocument.Location = new System.Drawing.Point(386, 590);
-            this.btnRemoveDocument.Name = "btnRemoveDocument";
-            this.btnRemoveDocument.Size = new System.Drawing.Size(141, 43);
-            this.btnRemoveDocument.TabIndex = 16;
-            this.btnRemoveDocument.Text = "Remove";
-            this.btnRemoveDocument.Click += new System.EventHandler(this.btnRemoveDocument_Click);
             // 
             // lblSTT
             // 
@@ -211,25 +173,6 @@
             this.guna2GradientButton2.TabIndex = 29;
             this.guna2GradientButton2.Text = "Course Material List";
             // 
-            // btnAddDocument
-            // 
-            this.btnAddDocument.BorderRadius = 5;
-            this.btnAddDocument.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddDocument.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddDocument.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAddDocument.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAddDocument.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddDocument.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnAddDocument.FillColor2 = System.Drawing.Color.Green;
-            this.btnAddDocument.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnAddDocument.ForeColor = System.Drawing.Color.White;
-            this.btnAddDocument.Location = new System.Drawing.Point(27, 590);
-            this.btnAddDocument.Name = "btnAddDocument";
-            this.btnAddDocument.Size = new System.Drawing.Size(138, 43);
-            this.btnAddDocument.TabIndex = 15;
-            this.btnAddDocument.Text = "Add";
-            this.btnAddDocument.Click += new System.EventHandler(this.btnAddDocument_Click);
-            // 
             // txtTitle
             // 
             this.txtTitle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -293,6 +236,31 @@
             this.panelAccount.Size = new System.Drawing.Size(605, 636);
             this.panelAccount.TabIndex = 32;
             // 
+            // txtIdDocument
+            // 
+            this.txtIdDocument.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.txtIdDocument.BorderRadius = 15;
+            this.txtIdDocument.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtIdDocument.DefaultText = "";
+            this.txtIdDocument.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtIdDocument.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtIdDocument.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtIdDocument.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtIdDocument.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIdDocument.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.txtIdDocument.ForeColor = System.Drawing.Color.Black;
+            this.txtIdDocument.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIdDocument.Location = new System.Drawing.Point(27, 116);
+            this.txtIdDocument.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtIdDocument.Name = "txtIdDocument";
+            this.txtIdDocument.PasswordChar = '\0';
+            this.txtIdDocument.PlaceholderText = "";
+            this.txtIdDocument.SelectedText = "";
+            this.txtIdDocument.Size = new System.Drawing.Size(117, 39);
+            this.txtIdDocument.TabIndex = 28;
+            this.txtIdDocument.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtIdDocument.Visible = false;
+            // 
             // guna2GradientButton3
             // 
             this.guna2GradientButton3.BorderRadius = 5;
@@ -336,6 +304,44 @@
             this.lblIdCourse.Size = new System.Drawing.Size(179, 27);
             this.lblIdCourse.TabIndex = 35;
             this.lblIdCourse.Text = "C001";
+            // 
+            // btnRemoveDocument
+            // 
+            this.btnRemoveDocument.BorderRadius = 5;
+            this.btnRemoveDocument.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRemoveDocument.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRemoveDocument.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRemoveDocument.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRemoveDocument.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRemoveDocument.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnRemoveDocument.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnRemoveDocument.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnRemoveDocument.ForeColor = System.Drawing.Color.White;
+            this.btnRemoveDocument.Location = new System.Drawing.Point(386, 590);
+            this.btnRemoveDocument.Name = "btnRemoveDocument";
+            this.btnRemoveDocument.Size = new System.Drawing.Size(141, 43);
+            this.btnRemoveDocument.TabIndex = 16;
+            this.btnRemoveDocument.Text = "Remove";
+            this.btnRemoveDocument.Click += new System.EventHandler(this.btnRemoveDocument_Click);
+            // 
+            // guna2GradientButton1
+            // 
+            this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2GradientButton1.FillColor = System.Drawing.SystemColors.Control;
+            this.guna2GradientButton1.FillColor2 = System.Drawing.SystemColors.Control;
+            this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GradientButton1.ForeColor = System.Drawing.SystemColors.Control;
+            this.guna2GradientButton1.Image = global::DoAnCk.Properties.Resources.refresh;
+            this.guna2GradientButton1.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2GradientButton1.Location = new System.Drawing.Point(370, 122);
+            this.guna2GradientButton1.Name = "guna2GradientButton1";
+            this.guna2GradientButton1.Size = new System.Drawing.Size(55, 45);
+            this.guna2GradientButton1.TabIndex = 37;
+            this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click);
             // 
             // guna2CirclePictureBox1
             // 
@@ -398,49 +404,43 @@
             this.picImage.TabIndex = 8;
             this.picImage.TabStop = false;
             // 
-            // txtIdDocument
+            // btnEditDocument
             // 
-            this.txtIdDocument.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.txtIdDocument.BorderRadius = 15;
-            this.txtIdDocument.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtIdDocument.DefaultText = "";
-            this.txtIdDocument.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtIdDocument.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtIdDocument.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtIdDocument.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtIdDocument.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtIdDocument.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.txtIdDocument.ForeColor = System.Drawing.Color.Black;
-            this.txtIdDocument.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtIdDocument.Location = new System.Drawing.Point(27, 116);
-            this.txtIdDocument.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtIdDocument.Name = "txtIdDocument";
-            this.txtIdDocument.PasswordChar = '\0';
-            this.txtIdDocument.PlaceholderText = "";
-            this.txtIdDocument.SelectedText = "";
-            this.txtIdDocument.Size = new System.Drawing.Size(117, 39);
-            this.txtIdDocument.TabIndex = 28;
-            this.txtIdDocument.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtIdDocument.Visible = false;
+            this.btnEditDocument.BorderRadius = 5;
+            this.btnEditDocument.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditDocument.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditDocument.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditDocument.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditDocument.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEditDocument.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnEditDocument.FillColor2 = System.Drawing.Color.Teal;
+            this.btnEditDocument.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnEditDocument.ForeColor = System.Drawing.Color.White;
+            this.btnEditDocument.Location = new System.Drawing.Point(206, 590);
+            this.btnEditDocument.Name = "btnEditDocument";
+            this.btnEditDocument.Size = new System.Drawing.Size(136, 43);
+            this.btnEditDocument.TabIndex = 20;
+            this.btnEditDocument.Text = "Edit";
+            this.btnEditDocument.Click += new System.EventHandler(this.btnEditDocument_Click);
             // 
-            // guna2GradientButton1
+            // btnAddDocument
             // 
-            this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2GradientButton1.FillColor = System.Drawing.SystemColors.Control;
-            this.guna2GradientButton1.FillColor2 = System.Drawing.SystemColors.Control;
-            this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2GradientButton1.ForeColor = System.Drawing.SystemColors.Control;
-            this.guna2GradientButton1.Image = global::DoAnCk.Properties.Resources.refresh;
-            this.guna2GradientButton1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2GradientButton1.Location = new System.Drawing.Point(370, 122);
-            this.guna2GradientButton1.Name = "guna2GradientButton1";
-            this.guna2GradientButton1.Size = new System.Drawing.Size(55, 45);
-            this.guna2GradientButton1.TabIndex = 37;
-            this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click);
+            this.btnAddDocument.BorderRadius = 5;
+            this.btnAddDocument.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddDocument.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddDocument.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddDocument.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddDocument.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddDocument.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAddDocument.FillColor2 = System.Drawing.Color.Green;
+            this.btnAddDocument.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnAddDocument.ForeColor = System.Drawing.Color.White;
+            this.btnAddDocument.Location = new System.Drawing.Point(27, 590);
+            this.btnAddDocument.Name = "btnAddDocument";
+            this.btnAddDocument.Size = new System.Drawing.Size(138, 43);
+            this.btnAddDocument.TabIndex = 15;
+            this.btnAddDocument.Text = "Add";
+            this.btnAddDocument.Click += new System.EventHandler(this.btnAddDocument_Click);
             // 
             // ViewDocumentsTecherForm
             // 
@@ -475,15 +475,12 @@
         private System.Windows.Forms.FlowLayoutPanel panelListDocument;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton6;
         public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2GradientButton btnEditDocument;
-        private Guna.UI2.WinForms.Guna2GradientButton btnRemoveDocument;
         public Guna.UI2.WinForms.Guna2HtmlLabel lblSTT;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         public Guna.UI2.WinForms.Guna2TextBox txtContent;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
-        private Guna.UI2.WinForms.Guna2GradientButton btnAddDocument;
         public Guna.UI2.WinForms.Guna2TextBox txtTitle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -497,5 +494,8 @@
         public Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         public Guna.UI2.WinForms.Guna2TextBox txtIdDocument;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private Guna.UI2.WinForms.Guna2GradientButton btnRemoveDocument;
+        private Guna.UI2.WinForms.Guna2GradientButton btnEditDocument;
+        private Guna.UI2.WinForms.Guna2GradientButton btnAddDocument;
     }
 }
