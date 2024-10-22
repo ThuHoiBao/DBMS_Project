@@ -186,6 +186,7 @@
             this.AvaiableflowLayoutPanel.Name = "AvaiableflowLayoutPanel";
             this.AvaiableflowLayoutPanel.Size = new System.Drawing.Size(511, 502);
             this.AvaiableflowLayoutPanel.TabIndex = 31;
+            this.AvaiableflowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.AvaiableflowLayoutPanel_Paint);
             // 
             // guna2GradientPanel1
             // 

@@ -64,5 +64,16 @@ namespace DoAnCk.RoleStudent
         {
 
         }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            Rigister rigister = new Rigister(this);
+            OpenForm(rigister);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

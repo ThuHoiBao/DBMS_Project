@@ -16,5 +16,10 @@ namespace DoAnCk.RoleStudent
         {
             InitializeComponent();
         }
+
+        private void UserControlCourseStudent_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

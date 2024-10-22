@@ -299,6 +299,18 @@
     <Compile Include="RoleStudent\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="RoleStudent\Rigister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoleStudent\Rigister.Designer.cs">
+      <DependentUpon>Rigister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoleStudent\UserControlCourseStudent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RoleStudent\UserControlCourseStudent.Designer.cs">
+      <DependentUpon>UserControlCourseStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="RoleTeacher\CourseTeacherForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -420,6 +432,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RoleStudent\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoleStudent\Rigister.resx">
+      <DependentUpon>Rigister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoleStudent\UserControlCourseStudent.resx">
+      <DependentUpon>UserControlCourseStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RoleTeacher\CourseTeacherForm.resx">
       <DependentUpon>CourseTeacherForm.cs</DependentUpon>

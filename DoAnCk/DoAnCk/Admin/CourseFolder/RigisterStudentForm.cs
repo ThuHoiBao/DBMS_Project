@@ -328,5 +328,10 @@ namespace DoAnCk
             AvaiableShowCourse(dt);
 
         }
+
+        private void AvaiableflowLayoutPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

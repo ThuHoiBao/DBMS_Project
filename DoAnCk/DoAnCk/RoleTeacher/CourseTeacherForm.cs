@@ -149,5 +149,10 @@ namespace DoAnCk.RoleTeacher
             viewStudentsTeacherForm.lblName.Text = nameCourse;
             mainOfTeacherForm.OpenFormForOther(viewStudentsTeacherForm);
         }
+
+        private void panelListCourse_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
