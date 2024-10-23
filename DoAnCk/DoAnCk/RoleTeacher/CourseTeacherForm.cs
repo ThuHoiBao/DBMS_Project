@@ -149,5 +149,10 @@ namespace DoAnCk.RoleTeacher
             viewStudentsTeacherForm.lblName.Text = nameCourse;
             mainOfTeacherForm.OpenFormForOther(viewStudentsTeacherForm);
         }
+
+        private void guna2GradientButton6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

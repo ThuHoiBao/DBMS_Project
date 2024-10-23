@@ -213,6 +213,7 @@
             this.guna2GradientButton6.Name = "guna2GradientButton6";
             this.guna2GradientButton6.Size = new System.Drawing.Size(55, 45);
             this.guna2GradientButton6.TabIndex = 27;
+            this.guna2GradientButton6.Click += new System.EventHandler(this.guna2GradientButton6_Click);
             // 
             // txtDes
             // 
