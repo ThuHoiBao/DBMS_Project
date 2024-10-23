@@ -150,7 +150,11 @@ namespace DoAnCk.RoleTeacher
             mainOfTeacherForm.OpenFormForOther(viewStudentsTeacherForm);
         }
 
+<<<<<<< HEAD
         private void panelListCourse_Paint(object sender, PaintEventArgs e)
+=======
+        private void guna2GradientButton6_Click(object sender, EventArgs e)
+>>>>>>> hung
         {
 
         }

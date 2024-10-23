@@ -64,5 +64,12 @@ namespace DoAnCk.RoleOwner
            TeacherOwner teacherOwner = new TeacherOwner(this);
             OpenForm(teacherOwner);
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        
     }
 }

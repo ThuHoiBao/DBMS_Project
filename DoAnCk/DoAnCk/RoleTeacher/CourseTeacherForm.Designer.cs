@@ -194,6 +194,28 @@
             this.label7.TabIndex = 32;
             this.label7.Text = "Total Students";
             // 
+<<<<<<< HEAD
+=======
+            // guna2GradientButton6
+            // 
+            this.guna2GradientButton6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton6.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2GradientButton6.FillColor = System.Drawing.SystemColors.Control;
+            this.guna2GradientButton6.FillColor2 = System.Drawing.SystemColors.Control;
+            this.guna2GradientButton6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GradientButton6.ForeColor = System.Drawing.SystemColors.Control;
+            this.guna2GradientButton6.Image = global::DoAnCk.Properties.Resources.refresh;
+            this.guna2GradientButton6.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2GradientButton6.Location = new System.Drawing.Point(41, 20);
+            this.guna2GradientButton6.Name = "guna2GradientButton6";
+            this.guna2GradientButton6.Size = new System.Drawing.Size(55, 45);
+            this.guna2GradientButton6.TabIndex = 27;
+            this.guna2GradientButton6.Click += new System.EventHandler(this.guna2GradientButton6_Click);
+            // 
+>>>>>>> hung
             // txtDes
             // 
             this.txtDes.AutoSize = true;
