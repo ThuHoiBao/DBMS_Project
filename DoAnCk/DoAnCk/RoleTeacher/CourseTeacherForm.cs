@@ -142,21 +142,34 @@ namespace DoAnCk.RoleTeacher
 
         private void btnEditCourse_Click(object sender, EventArgs e)
         {
+            //string idCourse = txtIdCourse.Text;
+            //string nameCourse = txtNameCourse.Text;
+            //ViewStudentsTeacherForm viewStudentsTeacherForm = new ViewStudentsTeacherForm();
+            //viewStudentsTeacherForm.lblIdCourse.Text = idCourse;
+            //viewStudentsTeacherForm.lblName.Text = nameCourse;
+            //mainOfTeacherForm.OpenFormForOther(viewStudentsTeacherForm);
+        }
+
+
+        private void panelListCourse_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2GradientButton6_Click(object sender, EventArgs e)
+
+        {
+
+        }
+
+        private void btnViewStudent_Click(object sender, EventArgs e)
+        {
             string idCourse = txtIdCourse.Text;
             string nameCourse = txtNameCourse.Text;
             ViewStudentsTeacherForm viewStudentsTeacherForm = new ViewStudentsTeacherForm();
             viewStudentsTeacherForm.lblIdCourse.Text = idCourse;
             viewStudentsTeacherForm.lblName.Text = nameCourse;
             mainOfTeacherForm.OpenFormForOther(viewStudentsTeacherForm);
-        }
-
-<<<<<<< HEAD
-        private void panelListCourse_Paint(object sender, PaintEventArgs e)
-=======
-        private void guna2GradientButton6_Click(object sender, EventArgs e)
->>>>>>> hung
-        {
-
         }
     }
 }

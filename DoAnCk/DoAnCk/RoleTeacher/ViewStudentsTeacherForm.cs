@@ -74,32 +74,6 @@ namespace DoAnCk.RoleTeacher
 
         private void Account(object sender, EventArgs e)
         {
-
-
-            //UserControlStuent userControlStuent = sender as UserControlStuent;
-            //if (userControlStuent != null)
-            //{
-            //    txtn
-            //    txtStatus.Text = userControlStuent.checkAccept.Checked ? "Đã Xác Nhận" : "Chưa Chấp Nhận";
-
-            //    if (userControlStuent.picImage.Image != null)
-
-            //    {
-            //        using (MemoryStream ms = new MemoryStream())
-            //        {
-            //            // Lưu hình ảnh hiện tại trong PictureBox vào MemoryStream
-            //            clickedAccount.picImage.Image.Save(ms, clickedAccount.picImage.Image.RawFormat);
-            //            byte[] imageBytes = ms.ToArray();
-
-            //            // Lưu trữ hoặc xử lý mảng byte ở đây
-            //            // Hiển thị lại hình ảnh từ mảng byte nếu cần
-            //            MemoryStream pictureStream = new MemoryStream(imageBytes);
-            //            picImage.Image = Image.FromStream(pictureStream);
-            //        }
-            //    }
-            //}
-
-            
             UserControlStuent userControlStuent = sender as UserControlStuent;
             if (userControlStuent != null)
             {

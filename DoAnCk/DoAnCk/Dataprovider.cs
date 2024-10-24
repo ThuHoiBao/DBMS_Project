@@ -10,7 +10,7 @@ namespace DoAnCk
 {
     public class Dataprovider
     {
-        private string conectionString = @"Data Source=DESKTOP-G5K1SUR;Initial Catalog=EnglishCourse_DataBase;Integrated Security=True";
+        private string conectionString = @"Data Source=DESKTOP-MQDG3C6\SQLEXPRESS01;Initial Catalog=EnglishCourse_DataBase;Integrated Security=True;";
 
 
         private static Dataprovider instance = new Dataprovider();
