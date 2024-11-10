@@ -269,11 +269,23 @@
     <Compile Include="RoleOwner\CourseOwner.Designer.cs">
       <DependentUpon>CourseOwner.cs</DependentUpon>
     </Compile>
+    <Compile Include="RoleOwner\CourseStats.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RoleOwner\CourseStats.Designer.cs">
+      <DependentUpon>CourseStats.cs</DependentUpon>
+    </Compile>
     <Compile Include="RoleOwner\MainOwner.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RoleOwner\MainOwner.Designer.cs">
       <DependentUpon>MainOwner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoleOwner\Stats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoleOwner\Stats.Designer.cs">
+      <DependentUpon>Stats.cs</DependentUpon>
     </Compile>
     <Compile Include="RoleOwner\TeacherOwner.cs">
       <SubType>Form</SubType>
@@ -313,9 +325,11 @@
     </Compile>
     <Compile Include="RoleStudent\UserControlCourseStudent.cs">
       <SubType>UserControl</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="RoleStudent\UserControlCourseStudent.Designer.cs">
       <DependentUpon>UserControlCourseStudent.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="RoleTeacher\CourseTeacherForm.cs">
       <SubType>Form</SubType>
@@ -424,8 +438,14 @@
     <EmbeddedResource Include="RoleOwner\CourseOwner.resx">
       <DependentUpon>CourseOwner.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RoleOwner\CourseStats.resx">
+      <DependentUpon>CourseStats.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RoleOwner\MainOwner.resx">
       <DependentUpon>MainOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoleOwner\Stats.resx">
+      <DependentUpon>Stats.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RoleOwner\TeacherOwner.resx">
       <DependentUpon>TeacherOwner.cs</DependentUpon>
@@ -447,6 +467,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RoleStudent\UserControlCourseStudent.resx">
       <DependentUpon>UserControlCourseStudent.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="RoleTeacher\CourseTeacherForm.resx">
       <DependentUpon>CourseTeacherForm.cs</DependentUpon>

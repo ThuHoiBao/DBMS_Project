@@ -70,6 +70,10 @@ namespace DoAnCk.RoleOwner
             this.Close();
         }
 
-        
+        private void btChart_Click(object sender, EventArgs e)
+        {
+            Stats stats = new Stats(this);
+            OpenForm(stats);
+        }
     }
 }

@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DoAnCk.RoleStudent
+namespace DoAnCk.RoleOwner
 {
-    public partial class UserControlCourse : UserControl
+    public partial class CourseStats : UserControl
     {
-        public UserControlCourse()
+        public CourseStats()
         {
             InitializeComponent();
-        }
-
-        private void UserControlCourseStudent_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

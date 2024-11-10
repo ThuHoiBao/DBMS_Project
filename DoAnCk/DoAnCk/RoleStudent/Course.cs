@@ -43,7 +43,7 @@ namespace DoAnCk.RoleStudent
             foreach (DataRow row in dt.Rows)
             {
                 // Tạo mới một đối tượng CourseUserControl1 cho mỗi hàng dữ liệu
-                UserControlCourseStudent ucCourse = new UserControlCourseStudent();
+                UserControlCourse ucCourse = new UserControlCourse();
                 ucCourse.lblSTT.Text = i.ToString();
                 ucCourse.lblCourseId.Text = row["CourseId"].ToString();
                 ucCourse.lblCourseName.Text = row["name"].ToString();
@@ -82,7 +82,7 @@ namespace DoAnCk.RoleStudent
         }
         private void CourseClick(object sender, EventArgs e)
         {
-            UserControlCourseStudent ucCourse = sender as UserControlCourseStudent;
+            UserControlCourse ucCourse = sender as UserControlCourse;
             if (ucCourse != null)
             {
                 // Cập nhật thông tin từ ucCourse mà người dùng đã click

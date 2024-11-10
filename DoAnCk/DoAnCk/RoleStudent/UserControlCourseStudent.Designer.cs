@@ -1,6 +1,6 @@
 ﻿namespace DoAnCk.RoleStudent
 {
-    partial class UserControlCourseStudent
+    partial class UserControlCourse
     {
         /// <summary> 
         /// Required designer variable.
