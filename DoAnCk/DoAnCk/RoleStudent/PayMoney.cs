@@ -98,5 +98,10 @@ namespace DoAnCk.RoleOwner
         {
             LoadTotalDebt(1);
         }
+
+        private void guna2HtmlLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
