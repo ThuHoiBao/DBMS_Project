@@ -21,6 +21,10 @@ namespace DoAnCk.RoleStudent
             InitializeComponent();
             this.main = main;
         }
+        public Course()
+        {
+            InitializeComponent();
+        }
 
         private void Course_Load(object sender, EventArgs e)
         {

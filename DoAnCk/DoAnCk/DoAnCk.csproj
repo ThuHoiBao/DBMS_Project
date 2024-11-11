@@ -281,6 +281,18 @@
     <Compile Include="RoleOwner\MainOwner.Designer.cs">
       <DependentUpon>MainOwner.cs</DependentUpon>
     </Compile>
+    <Compile Include="RoleStudent\Payment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RoleStudent\Payment.Designer.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoleStudent\PayMoney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoleStudent\PayMoney.Designer.cs">
+      <DependentUpon>PayMoney.cs</DependentUpon>
+    </Compile>
     <Compile Include="RoleOwner\Stats.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -342,6 +354,18 @@
     </Compile>
     <Compile Include="RoleTeacher\MainOfTeacherForm.Designer.cs">
       <DependentUpon>MainOfTeacherForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoleTeacher\TeacherSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoleTeacher\TeacherSalary.Designer.cs">
+      <DependentUpon>TeacherSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoleTeacher\ucTeacherSalary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RoleTeacher\ucTeacherSalary.Designer.cs">
+      <DependentUpon>ucTeacherSalary.cs</DependentUpon>
     </Compile>
     <Compile Include="RoleTeacher\UserControlDecument.cs">
       <SubType>UserControl</SubType>
@@ -444,6 +468,12 @@
     <EmbeddedResource Include="RoleOwner\MainOwner.resx">
       <DependentUpon>MainOwner.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RoleStudent\Payment.resx">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoleStudent\PayMoney.resx">
+      <DependentUpon>PayMoney.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RoleOwner\Stats.resx">
       <DependentUpon>Stats.cs</DependentUpon>
     </EmbeddedResource>
@@ -474,6 +504,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RoleTeacher\MainOfTeacherForm.resx">
       <DependentUpon>MainOfTeacherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoleTeacher\TeacherSalary.resx">
+      <DependentUpon>TeacherSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoleTeacher\ucTeacherSalary.resx">
+      <DependentUpon>ucTeacherSalary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RoleTeacher\UserControlDecument.resx">
       <DependentUpon>UserControlDecument.cs</DependentUpon>

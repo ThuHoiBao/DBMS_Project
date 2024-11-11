@@ -108,5 +108,11 @@ namespace DoAnCk.RoleTeacher
         {
 
         }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            TeacherSalary teacherSalary = new TeacherSalary();
+            OpenForm(teacherSalary);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using DoAnCk.RoleTeacher;
+﻿using DoAnCk.RoleOwner;
+using DoAnCk.RoleTeacher;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -74,6 +75,12 @@ namespace DoAnCk.RoleStudent
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            PayMoney paymoney = new PayMoney();
+            OpenForm(paymoney);
         }
     }
 }
