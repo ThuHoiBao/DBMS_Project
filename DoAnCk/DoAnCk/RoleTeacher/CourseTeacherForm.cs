@@ -57,9 +57,10 @@ namespace DoAnCk.RoleTeacher
             string query = "EXEC procedureCourseListByTeacher @idTeacher";
 
             // Tạo danh sách tham số
+            int idTeacher=Convert.ToInt32(lblSudentId.Text);
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = new SqlParameter("@idTeacher", SqlDbType.Int);
-            parameters[0].Value = 7;
+            parameters[0].Value = idTeacher;
 
             // Truyền tham số vào ExecuteQuery
             DataTable dt = Dataprovider.Instance.ExecuteQuery(query, parameters);
@@ -102,11 +103,11 @@ namespace DoAnCk.RoleTeacher
 
             // Tạo truy vấn để gọi hàm tìm kiếm từ SQL Server
             string query = "SELECT * FROM FuntionSearchCourseByIdOrName(@idTeacher, @searchValue)";
-
+            int idTeacher = Convert.ToInt32(lblSudentId.Text);
             // Tạo danh sách tham số
             SqlParameter[] parameters = new SqlParameter[2];
             parameters[0] = new SqlParameter("@idTeacher", SqlDbType.Int);
-            parameters[0].Value = 7;  // Thay bằng id của giáo viên cần tìm kiếm
+            parameters[0].Value = idTeacher;  // Thay bằng id của giáo viên cần tìm kiếm
             parameters[1] = new SqlParameter("@searchValue", SqlDbType.NVarChar);
             parameters[1].Value = searchValue;
 

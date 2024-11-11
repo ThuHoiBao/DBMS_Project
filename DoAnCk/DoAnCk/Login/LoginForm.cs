@@ -1,4 +1,8 @@
-﻿using System;
+﻿using DoAnCk.RoleOwner;
+using DoAnCk.RoleStudent;
+using DoAnCk.RoleTeacher;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,12 +57,14 @@ namespace DoAnCk
         private void guna2Button3_Click(object sender, EventArgs e)
         {
             
-            MainLoginForm mainLoginForm = new MainLoginForm();
-            SignUpForm signUpForm = new SignUpForm();
+            //MainLoginForm mainLoginForm = new MainLoginForm();
+            SignUpForm signUpForm = new SignUpForm(mainLoginForm);
+            //this.Hide();
             mainLoginForm.OpenForm(signUpForm);
             mainLoginForm.Show();
             
         }
+ 
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
@@ -103,73 +109,94 @@ namespace DoAnCk
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             int userType;
-            if(comboboxAccount.Text == "Administrator")
+            
+            DataTable dt = new DataTable();
+
+            // Xác định loại người dùng dựa trên lựa chọn của comboboxAccount
+            if (comboboxAccount.Text == "Administrator")
             {
                 userType = 1;
+                string procedureName = "EXEC LoginOwner @userName,  @password";
+                SqlParameter[] parameters = new SqlParameter[2];
+                parameters[0] = new SqlParameter("@userName", SqlDbType.NVarChar);
+                parameters[0].Value = txtNameAccount.Text;
+                parameters[1] = new SqlParameter("@password", SqlDbType.NVarChar);
+                parameters[1].Value = txtPassword.Text;
+                // Truyền stored procedure vào ExecuteQuery mà không cần "EXEC"
+                dt = Dataprovider.Instance.ExecuteQuery(procedureName, parameters);
+
             }
             else if (comboboxAccount.Text == "Teacher")
             {
                 userType = 2;
+               string procedureName = "EXEC LoginTeacher @userName,  @password";
+                SqlParameter[] parameters = new SqlParameter[2];
+                parameters[0] = new SqlParameter("@userName", SqlDbType.NVarChar);
+                parameters[0].Value = txtNameAccount.Text;
+                parameters[1] = new SqlParameter("@password", SqlDbType.NVarChar);
+                parameters[1].Value = txtPassword.Text;
+
+                // Truyền stored procedure vào ExecuteQuery mà không cần "EXEC"
+                dt = Dataprovider.Instance.ExecuteQuery(procedureName, parameters);
             }
             else
             {
                 userType = 3;
+               string procedureName = "EXEC LoginStudent @userName, @password";
+                SqlParameter[] parameters = new SqlParameter[2];
+                parameters[0] = new SqlParameter("@userName",SqlDbType.NVarChar);
+                parameters[0].Value = txtNameAccount.Text;
+                parameters[1] = new SqlParameter("@password", SqlDbType.NVarChar);
+                parameters[1].Value = txtPassword.Text;
+                // Truyền stored procedure vào ExecuteQuery mà không cần "EXEC"
+                dt = Dataprovider.Instance.ExecuteQuery(procedureName, parameters);
             }
-            int accep = 1;
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter("@acc", txtNameAccount.Text),
-                new SqlParameter("@pwd", txtPassword.Text),
-                new SqlParameter("@ust",userType),
-                new SqlParameter("@acep",accep)
-            };
-            DataTable dt = Dataprovider.Instance.ExecuteQuery("SELECT * FROM Users WHERE account = @acc AND password = @pwd " +
-                " And user_type =@ust AND accept = @acep",parameters);
-            check = true;
-            Check();
-            if (check == true && dt.Rows.Count>0)
-            {
-                int userId = Convert.ToInt32(dt.Rows[0]["user_id"].ToString());
-                Global.GetGlobalId(userId);
-                if (dt.Rows.Count > 0 && comboboxAccount.Text == "Administrator")
-                {
 
-                    MessageBox.Show("Đăng Nhập Thành Công !!!!", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    MainAdminForm mainAdminForm = new MainAdminForm();
+            // Tạo danh sách tham số
+
+
+            // Kiểm tra kết quả trả về
+            if (dt.Rows.Count > 0)
+            {
+                // Đăng nhập thành công, lấy user_id từ kết quả
+                int userId = Convert.ToInt32(dt.Rows[0]["id"]);
+                string fullName = dt.Rows[0]["fullName"].ToString();
+
+                MessageBox.Show("Đăng Nhập Thành Công !!!!", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Kiểm tra loại người dùng và mở form tương ứng
+                if (userType == 1) // Administrator
+                {
+                    MainOwner mainOwner = new MainOwner();
+                    mainOwner.lblUserName.Text = "Xin Chào," + fullName;
                     this.Hide();
                     mainLoginForm.Hide();
-                    mainAdminForm.Show();
-                   
-
+                    mainOwner.Show();
                 }
-      //          else if(dt.Rows.Count>0 && comboboxAccount.Text == "Teacher")
-      //          {
-      //              MessageBox.Show("Đăng Nhập Thành Công !!!!", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
-      //              MainTeacherForm main = new MainTeacherForm(userId);
-      //              this.Hide();
-      //              mainLoginForm.Hide();
-      //main.Show();
-                    
-      //          }
-      //          else if(dt.Rows.Count > 0 && comboboxAccount.Text == "Student")
-      //          {
-      //              MessageBox.Show("Đăng Nhập Thành Công !!!!", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
-      //              FormMain formMain =new FormMain(userId);
-      //             mainLoginForm.Hide();
-      //              this.Hide();
-      //              formMain.Show();
-                   
-      //          }
-                else
+                else if (userType == 2) // Teacher
                 {
-                    MessageBox.Show("Incorrect Pass Word or User Account or Type Account");
+                    MainOfTeacherForm mainOfTeacherForm = new MainOfTeacherForm();
+                    mainOfTeacherForm.lblSudentId.Text =userId.ToString();
+                    mainOfTeacherForm.lblUserName.Text= "Xin Chào," + fullName;
+                    this.Hide();
+                    mainLoginForm.Hide();
+                    mainOfTeacherForm.Show();
+                }
+                else if (userType == 3) // Student
+                {
+                    Main main = new Main();
+                    main.lblIdStudent.Text = userId.ToString();
+                    main.lblUserName.Text ="Xin Chào,"+ fullName;
+                    this.Hide();
+                    mainLoginForm.Hide();
+                    main.Show();
                 }
             }
-            else if(dt.Rows.Count == 0 && check==true)
+            else
             {
-                MessageBox.Show("Incorrect Pass Word or User Account or Type Account","Login",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                // Nếu không tìm thấy bản ghi phù hợp, thông báo lỗi
+                MessageBox.Show("Incorrect Username, Password, or Account Type", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
         }
 
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)

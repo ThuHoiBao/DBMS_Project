@@ -656,8 +656,10 @@
     <Content Include="Resources\send.png" />
     <Content Include="Resources\student.png" />
     <Content Include="Resources\teacher.png" />
+    <None Include="Resources\tải xuống.png" />
     <Content Include="Resources\unseen.png" />
     <Content Include="Resources\user %281%29.png" />
+    <None Include="Resources\ute.png" />
     <Content Include="Resources\z5379577495012_2d910f9d1027aa4c4bb036d2b9c19334.jpg" />
   </ItemGroup>
   <ItemGroup />

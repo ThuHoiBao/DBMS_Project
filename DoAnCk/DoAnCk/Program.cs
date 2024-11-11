@@ -19,7 +19,7 @@ namespace DoAnCk
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainOfTeacherForm());
+            Application.Run(new MainLoginForm());
 
         }
     }

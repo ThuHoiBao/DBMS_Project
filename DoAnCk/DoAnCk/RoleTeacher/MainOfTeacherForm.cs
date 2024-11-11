@@ -21,6 +21,7 @@ namespace DoAnCk.RoleTeacher
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             CourseTeacherForm courseTeacherForm = new CourseTeacherForm(this);
+            courseTeacherForm.lblSudentId.Text = lblSudentId.Text;
             OpenForm(courseTeacherForm);
         }
 

@@ -61,6 +61,7 @@
             this.guna2GradientButton3 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.panelAccount = new Guna.UI2.WinForms.Guna2Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblSudentId = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel2.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
@@ -582,11 +583,21 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // lblSudentId
+            // 
+            this.lblSudentId.BackColor = System.Drawing.Color.Transparent;
+            this.lblSudentId.Location = new System.Drawing.Point(845, 68);
+            this.lblSudentId.Name = "lblSudentId";
+            this.lblSudentId.Size = new System.Drawing.Size(108, 18);
+            this.lblSudentId.TabIndex = 35;
+            this.lblSudentId.Text = "guna2HtmlLabel2";
+            // 
             // Rigister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1477, 750);
+            this.Controls.Add(this.lblSudentId);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.guna2GradientButton2);
@@ -604,6 +615,7 @@
             this.panelAccount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -641,5 +653,6 @@
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton3;
         public Guna.UI2.WinForms.Guna2Panel panelAccount;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        public Guna.UI2.WinForms.Guna2HtmlLabel lblSudentId;
     }
 }

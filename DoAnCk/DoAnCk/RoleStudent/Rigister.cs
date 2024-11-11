@@ -14,7 +14,7 @@ namespace DoAnCk.RoleStudent
     public partial class Rigister : Form
     {
         Main Main;
-        int studentId = 1;
+        
         public Rigister(Main main)
         {
             InitializeComponent();
@@ -53,6 +53,7 @@ namespace DoAnCk.RoleStudent
             string query = " GetAvailableCoursesForStudent @StudentId";
 
             // Tạo danh sách tham số
+            int studentId= Convert.ToInt32(lblSudentId.Text);
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = new SqlParameter("@StudentId", SqlDbType.Int);
             parameters[0].Value = studentId;
@@ -96,7 +97,7 @@ namespace DoAnCk.RoleStudent
             // Lấy thông tin sinh viên và khóa học từ các trường thông tin
              // Bạn cần thay đổi giá trị này dựa trên ID thực tế của sinh viên
             string courseId = txtIdCourse.Text; // ID khóa học từ textbox
-
+            int studentId= Convert.ToInt32(lblSudentId.Text);
             // Thực hiện gọi stored procedure để đăng ký khóa học
             string query = "EXEC RegisterCourse @StudentId, @CourseId, @Status";
 
