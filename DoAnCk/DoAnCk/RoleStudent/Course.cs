@@ -14,8 +14,9 @@ namespace DoAnCk.RoleStudent
 {
     public partial class Course : Form
     {
-        int studentId = 1;
+       
         Main main;
+       
         public Course(Main main)
         {
             InitializeComponent();
@@ -29,11 +30,13 @@ namespace DoAnCk.RoleStudent
         private void Course_Load(object sender, EventArgs e)
         {
             LoadCourseFull();
+            
         }
 
         private void btnViewDecument_Click(object sender, EventArgs e)
         {
             string idCourse = txtIdCourse.Text;
+            
             string nameCourse = txtNameCourse.Text;
             Document viewDocumentsTecherForm = new Document();
             viewDocumentsTecherForm.lblIdCourse.Text = idCourse;
@@ -74,7 +77,7 @@ namespace DoAnCk.RoleStudent
         {
 
             string query = " EXEC GetRegisteredCoursesForStudent @StudentId ";
-
+            int studentId= Convert.ToInt32(lblSudentId.Text);
             // Tạo danh sách tham số
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = new SqlParameter("@StudentId", SqlDbType.Int);
@@ -135,6 +138,11 @@ namespace DoAnCk.RoleStudent
         }
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblIdStudent_Click(object sender, EventArgs e)
         {
 
         }

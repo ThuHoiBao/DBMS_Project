@@ -36,6 +36,7 @@ namespace DoAnCk
 
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
+                        
                         adapter.Fill(dt);
                     }
                 }

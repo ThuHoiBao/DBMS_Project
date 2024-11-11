@@ -34,6 +34,7 @@
             this.txtPrice = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panelAccount = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnViewStudent = new Guna.UI2.WinForms.Guna2GradientButton();
             this.txtTotalStudents = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.guna2GradientButton6 = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -61,7 +62,7 @@
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.btnViewStudent = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.lblSudentId = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panelAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
@@ -159,6 +160,25 @@
             this.panelAccount.Name = "panelAccount";
             this.panelAccount.Size = new System.Drawing.Size(452, 636);
             this.panelAccount.TabIndex = 26;
+            // 
+            // btnViewStudent
+            // 
+            this.btnViewStudent.BorderRadius = 5;
+            this.btnViewStudent.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnViewStudent.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnViewStudent.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnViewStudent.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnViewStudent.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnViewStudent.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnViewStudent.FillColor2 = System.Drawing.Color.CadetBlue;
+            this.btnViewStudent.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnViewStudent.ForeColor = System.Drawing.Color.White;
+            this.btnViewStudent.Location = new System.Drawing.Point(243, 572);
+            this.btnViewStudent.Name = "btnViewStudent";
+            this.btnViewStudent.Size = new System.Drawing.Size(206, 43);
+            this.btnViewStudent.TabIndex = 34;
+            this.btnViewStudent.Text = "View Students";
+            this.btnViewStudent.Click += new System.EventHandler(this.btnViewStudent_Click);
             // 
             // txtTotalStudents
             // 
@@ -588,30 +608,21 @@
             this.guna2Button1.TabIndex = 27;
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
-            // btnViewStudent
+            // lblSudentId
             // 
-            this.btnViewStudent.BorderRadius = 5;
-            this.btnViewStudent.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnViewStudent.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnViewStudent.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnViewStudent.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnViewStudent.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnViewStudent.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnViewStudent.FillColor2 = System.Drawing.Color.CadetBlue;
-            this.btnViewStudent.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnViewStudent.ForeColor = System.Drawing.Color.White;
-            this.btnViewStudent.Location = new System.Drawing.Point(243, 572);
-            this.btnViewStudent.Name = "btnViewStudent";
-            this.btnViewStudent.Size = new System.Drawing.Size(206, 43);
-            this.btnViewStudent.TabIndex = 34;
-            this.btnViewStudent.Text = "View Students";
-            this.btnViewStudent.Click += new System.EventHandler(this.btnViewStudent_Click);
+            this.lblSudentId.BackColor = System.Drawing.Color.Transparent;
+            this.lblSudentId.Location = new System.Drawing.Point(834, 56);
+            this.lblSudentId.Name = "lblSudentId";
+            this.lblSudentId.Size = new System.Drawing.Size(108, 18);
+            this.lblSudentId.TabIndex = 36;
+            this.lblSudentId.Text = "guna2HtmlLabel2";
             // 
             // CourseTeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1477, 750);
+            this.Controls.Add(this.lblSudentId);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.panelAccount);
             this.Controls.Add(this.panelListCourse);
@@ -629,6 +640,7 @@
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -667,5 +679,6 @@
         public Guna.UI2.WinForms.Guna2TextBox txtTotalStudents;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2GradientButton btnViewStudent;
+        public Guna.UI2.WinForms.Guna2HtmlLabel lblSudentId;
     }
 }

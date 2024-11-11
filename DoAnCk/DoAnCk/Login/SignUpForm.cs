@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -13,9 +14,11 @@ namespace DoAnCk
 {
     public partial class SignUpForm : Form
     {
-        public SignUpForm()
+        MainLoginForm loginForm;
+        public SignUpForm(MainLoginForm loginForm)
         {
             InitializeComponent();
+            this.loginForm = loginForm;
         }
 
         private void SignUpForm_Load(object sender, EventArgs e)
@@ -30,10 +33,8 @@ namespace DoAnCk
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            txtPassWord.PasswordChar = '\0';
-            txtConfirmPass.PasswordChar = '\0';
-            btnSeenPass.Visible =false ;
-            
+
+
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
@@ -50,146 +51,92 @@ namespace DoAnCk
         {
 
         }
-        public bool CheckStringName(string st)
+        public bool InsertStudent(string userName, string password, string fullName, string email, string phoneNumber, DateTime dateOfBirth, string target, string address, byte[] avatar, string type)
         {
-            for (int i = 0; i < st.Length; i++)
+            // Câu lệnh EXEC SQL với stored procedure
+            string query = "EXEC InsertStudent @userName, @password, @fullName, @email, @phoneNumber, @dateOfBirth, @target, @address, @avatar, @type";
+
+            // Tạo danh sách tham số
+            SqlParameter[] parameters = new SqlParameter[]
             {
-                if (!char.IsLetter(st[i]) && st[i] != ' ')
-                {
-                    return false;
-                }
+        new SqlParameter("@userName", SqlDbType.NVarChar) { Value = userName },
+        new SqlParameter("@password", SqlDbType.NVarChar) { Value = password },
+        new SqlParameter("@fullName", SqlDbType.NVarChar) { Value = fullName },
+        new SqlParameter("@email", SqlDbType.NVarChar) { Value = email },
+        new SqlParameter("@phoneNumber", SqlDbType.NVarChar) { Value = phoneNumber },
+        new SqlParameter("@dateOfBirth", SqlDbType.DateTime) { Value = dateOfBirth },
+        new SqlParameter("@target", SqlDbType.NVarChar) { Value = target },
+        new SqlParameter("@address", SqlDbType.NVarChar) { Value = address },
+        new SqlParameter("@avatar", SqlDbType.VarBinary) { Value = avatar },
+        new SqlParameter("@type", SqlDbType.NVarChar) { Value = type }
+            };
 
-            }
-            return true;
-
+            // Thực hiện câu lệnh và kiểm tra kết quả
+            int result = Dataprovider.Instance.ExecuteNonQuery(query, parameters);
+            return result > 0; // Trả về true nếu chèn thành công
         }
-        public bool CheckStringPhone(string st)
-        {
-            for (int i = 0; i < st.Length; i++)
-            {
-                if (!char.IsDigit(st[i]))
-                {
-                    return false;
-                }
 
-            }
-            return true;
-
-        }
-        bool check = true;
-        public void Check()
-        {
-            int born = datepicBd.Value.Year;
-            int thisYear = DateTime.Now.Year;
-
-
-            errorProvider1.Clear();
-            if (txtNameAccount.Text== "")
-            {
-                errorProvider1.SetError(txtNameAccount, "Bạn Chưa Nhập gì?");
-                check = false;
-            }
-            if (txtUserName.Text == "")
-            {
-                errorProvider1.SetError(txtUserName, "Bạn Chưa Nhập gì?");
-                check = false;
-            }
-            if (txtPassWord.Text == "")
-            {
-                errorProvider1.SetError(txtPassWord, "Bạn Chưa Nhập gì?");
-                check = false;
-            }
-            if (txtConfirmPass.Text == "")
-            {
-                errorProvider1.SetError(txtConfirmPass, "Bạn Chưa Nhập gì?");
-                check = false;
-            }
-            if (txtAddress.Text == "")
-            {
-                errorProvider1.SetError(txtAddress, "Bạn Chưa Nhập gì?");
-                check = false;
-            }
-            if (radStdent == null && radTeacher == null)
-            {
-                errorProvider1.SetError(radTeacher, "Bạn Chưa Chọn gì?");
-                check = false;
-            }
-            if (picImage.Image == null)
-            {
-                errorProvider1.SetError(picImage, "Bạn Chưa Chọn gì?");
-                check = false;
-            }
-            if ((thisYear - born) < 10 || (thisYear - born > 100))
-            {
-                errorProvider1.SetError(datepicBd, "Tuổi bạn phải lớn hơn 10 và nhỏ hơn 100?");
-                check = false;
-            }
-            if (!CheckStringName(txtUserName.Text))
-            {
-                errorProvider1.SetError(txtUserName, "UserName không chứa chữ số hoặc các kí tự đặc biệt");
-                check = false;
-            }
-
-        }
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            User user = new User();
             string userName = txtUserName.Text;
             DateTime bdate = datepicBd.Value;
-            string userAccount = txtNameAccount.Text;
+            string fullName = txtFullName.Text;
             string pass = txtPassWord.Text;
             string adrs = txtAddress.Text;
-            int accept = 0;
+            string email = txtEmail.Text;
+            string phone = txtPhone.Text;
+            string target = txtTarget.Text;
+            string userType = "3";
 
-            int userType = 1;
-            string gmail = "";
-            if (radStdent.Checked)
-            {
-                userType = 3;
-                gmail=txtNameAccount.Text+"@student.hcmute.edu.vn";
-            }
-            else if (radTeacher.Checked)
-            {
-                userType = 2;
-                gmail = txtNameAccount.Text + "@teacher.hcmute.edu.vn";
-            }
-
-
+            // Chuyển ảnh thành mảng byte để lưu trữ
             MemoryStream pic = new MemoryStream();
-            int born = datepicBd.Value.Year;
-            int thisYear = DateTime.Now.Year;
-            check = true;
-            Check();
-            if (check == true)
+            picImage.Image.Save(pic, picImage.Image.RawFormat);
+            byte[] avatar = pic.ToArray();
+
+            try
             {
-                try
+                // Gọi phương thức InsertStudent để thêm sinh viên mới vào cơ sở dữ liệu
+                bool isInserted = InsertStudent(userName, pass, fullName, email, phone, bdate, target, adrs, avatar, userType);
+
+                if (isInserted)
                 {
-                    picImage.Image.Save(pic, picImage.Image.RawFormat);
-                    if (txtPassWord.Text == txtConfirmPass.Text)
-                    {
-                        if (user.InsertAccount(accept, userName, bdate, pic, userAccount, pass, gmail, adrs, userType))
-                        {
-                            MessageBox.Show("New Account Added, Please, wait for admin to confirm", "New Account Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Confirm Pass Word is not the same as Pass Word", "Add Account", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("New Account Added, Please wait for admin to confirm", "New Account Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Failed to add new account. Please check the information provided.", "Add Account", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
+            catch (SqlException ex)
+            {
+                // Kiểm tra lỗi từ SQL Server nếu có lỗi trùng lặp
+                if (ex.Number == 2627 || ex.Number == 2601) // Lỗi trùng khóa
+                {
+                    if (ex.Message.Contains("username")) // Kiểm tra xem lỗi có liên quan đến username
+                    {
+                        MessageBox.Show("Username already exists. Please choose a different username.", "Duplicate Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else if (ex.Message.Contains("phone")) // Kiểm tra xem lỗi có liên quan đến phone
+                    {
+                        MessageBox.Show("Phone number already exists. Please use a different phone number.", "Duplicate Phone", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    // Thông báo lỗi khác từ SQL
+                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
-        private void btnUnSeenPass_Click(object sender, EventArgs e)
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
         {
-            txtConfirmPass.PasswordChar = '*';
-            txtPassWord.PasswordChar = '*';
-            btnSeenPass.Visible = true;
+            //MainLoginForm mainLoginForm = new MainLoginForm();
+            LoginForm login = new LoginForm(loginForm);
+          
+            //this.Hide();
+            loginForm.OpenForm(login);
+            loginForm.Show();
         }
     }
 }

@@ -23,6 +23,7 @@ namespace DoAnCk.RoleStudent
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             Course courseForm = new Course(this);
+            courseForm.lblSudentId.Text =lblIdStudent.Text;
             OpenForm(courseForm);
         }
         public void OpenForm(Form f)
@@ -69,6 +70,7 @@ namespace DoAnCk.RoleStudent
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             Rigister rigister = new Rigister(this);
+            rigister.lblSudentId.Text =lblIdStudent.Text;
             OpenForm(rigister);
         }
 
@@ -77,10 +79,22 @@ namespace DoAnCk.RoleStudent
             this.Close();
         }
 
+
         private void guna2Button3_Click(object sender, EventArgs e)
         {
             PayMoney paymoney = new PayMoney();
             OpenForm(paymoney);
+        }
+
+        private void lblIdStudent_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+
         }
     }
 }
