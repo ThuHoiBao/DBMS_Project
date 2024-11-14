@@ -29,18 +29,19 @@
         private void InitializeComponent()
         {
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblSTT = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panelListCourse = new System.Windows.Forms.FlowLayoutPanel();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientButton6 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.txtTotalSalary = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblSudentId = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +59,18 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(820, 50);
             this.guna2Panel2.TabIndex = 34;
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.AutoSize = false;
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.Control;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(590, 12);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(215, 27);
+            this.guna2HtmlLabel2.TabIndex = 10;
+            this.guna2HtmlLabel2.Text = "Tổng sinh viên";
             // 
             // guna2HtmlLabel1
             // 
@@ -115,18 +128,6 @@
             this.panelListCourse.Size = new System.Drawing.Size(820, 517);
             this.panelListCourse.TabIndex = 35;
             // 
-            // guna2HtmlLabel2
-            // 
-            this.guna2HtmlLabel2.AutoSize = false;
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.Control;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(590, 12);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(215, 27);
-            this.guna2HtmlLabel2.TabIndex = 10;
-            this.guna2HtmlLabel2.Text = "Tổng sinh viên";
-            // 
             // guna2HtmlLabel4
             // 
             this.guna2HtmlLabel4.AutoSize = false;
@@ -138,6 +139,7 @@
             this.guna2HtmlLabel4.Size = new System.Drawing.Size(215, 27);
             this.guna2HtmlLabel4.TabIndex = 36;
             this.guna2HtmlLabel4.Text = "Tiền lương:";
+            this.guna2HtmlLabel4.Click += new System.EventHandler(this.guna2HtmlLabel4_Click);
             // 
             // guna2GradientButton6
             // 
@@ -213,11 +215,21 @@
             this.guna2HtmlLabel8.TabIndex = 41;
             this.guna2HtmlLabel8.Text = "\tTổng học sinh * học phí khóa học => Tổng tiền từ mỗi khóa học";
             // 
+            // lblSudentId
+            // 
+            this.lblSudentId.BackColor = System.Drawing.Color.Transparent;
+            this.lblSudentId.Location = new System.Drawing.Point(1205, 12);
+            this.lblSudentId.Name = "lblSudentId";
+            this.lblSudentId.Size = new System.Drawing.Size(108, 18);
+            this.lblSudentId.TabIndex = 42;
+            this.lblSudentId.Text = "guna2HtmlLabel2";
+            // 
             // TeacherSalary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1459, 703);
+            this.Controls.Add(this.lblSudentId);
             this.Controls.Add(this.guna2HtmlLabel8);
             this.Controls.Add(this.guna2HtmlLabel7);
             this.Controls.Add(this.guna2HtmlLabel6);
@@ -232,6 +244,7 @@
             this.Load += new System.EventHandler(this.TeacherSalary_Load);
             this.guna2Panel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -250,5 +263,6 @@
         public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
         public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
+        public Guna.UI2.WinForms.Guna2HtmlLabel lblSudentId;
     }
 }

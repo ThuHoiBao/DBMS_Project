@@ -113,6 +113,7 @@ namespace DoAnCk.RoleTeacher
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             TeacherSalary teacherSalary = new TeacherSalary();
+            teacherSalary.lblSudentId.Text =lblSudentId.Text;
             OpenForm(teacherSalary);
         }
     }

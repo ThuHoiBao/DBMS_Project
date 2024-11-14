@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +35,7 @@ namespace DoAnCk.RoleOwner
             foreach (DataRow row in dt.Rows)  // Duyệt qua từng hàng dữ liệu
             {
                 UserControlTeacher userControlTeacher = new UserControlTeacher();
-                userControlTeacher.lblSTT.Text = row["id"].ToString();
+                userControlTeacher.lblId.Text = row["id"].ToString();
                 userControlTeacher.lblFullName.Text = row["fullName"].ToString();
                 userControlTeacher.lblPhone.Text = row["email"].ToString();
                 userControlTeacher.lblCertificate.Text = row["certificate"].ToString(); // Hiển thị chứng chỉ
@@ -58,13 +59,13 @@ namespace DoAnCk.RoleOwner
             if (ucTeacher != null)
             {
                 // Lấy ID giáo viên từ UserControl
-                string teacherId = ucTeacher.lblSTT.Text;
+                string teacherId = ucTeacher.lblId.Text;
 
                 // Gán ID giáo viên vào txtIdRegister
                 txtIdRegister.Text = teacherId;
 
                 // Thực thi truy vấn để lấy chi tiết giáo viên
-                string query = "EXEC procedureTeacherInfoById @idTeacher";
+                string query = "EXEC procedureTeacherInfoBy @idTeacher";
 
                 // Tạo danh sách tham số
                 SqlParameter[] parameters = new SqlParameter[1];
@@ -78,6 +79,8 @@ namespace DoAnCk.RoleOwner
                 {
                     // Gán dữ liệu từ DataTable vào các TextBox hoặc label để hiển thị thông tin giáo viên
                     txtEmail.Text = dt.Rows[0]["email"].ToString();
+                    txtUserName.Text= dt.Rows[0]["userName"].ToString();
+                    txtPass.Text= dt.Rows[0]["password"].ToString();
                     txtName.Text = dt.Rows[0]["fullName"].ToString();
                     txtCertificate.Text = dt.Rows[0]["certificate"].ToString();
                     txtExperience.Text = dt.Rows[0]["experience"].ToString();
@@ -239,6 +242,7 @@ namespace DoAnCk.RoleOwner
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddTeacher();
+
         }
         private void AddTeacher()
         {
@@ -251,43 +255,46 @@ namespace DoAnCk.RoleOwner
             int experience = int.Parse(txtExperience.Text);
 
             // Các trường không có dữ liệu sẽ được gán giá trị mặc định
-            string userName = "defaultUser";  // Gán giá trị mặc định cho userName
-            string password = "defaultPassword";  // Gán giá trị mặc định cho password
-            string avatar = "defaultAvatar.png";  // Gán giá trị mặc định cho avatar
-            string type = "defaultType";  // Gán giá trị mặc định cho type
+            string userName = txtUserName.Text;  // Gán giá trị mặc định cho userName
+            string password = txtPass.Text;      // Gán giá trị mặc định cho password
+            string type = "2";                   // Gán giá trị mặc định cho type
+
+            // Convert image to byte array for the avatar field
+
+            // Chuyển ảnh thành mảng byte để lưu trữ
+            MemoryStream pic = new MemoryStream();
+            picImage.Image.Save(pic, picImage.Image.RawFormat);
+            byte[] avatar = pic.ToArray();
 
             // Khởi tạo câu truy vấn SQL để gọi stored procedure addTeacher
-            string query = "EXEC addTeacher @idOwner, @userName, @password, @email, @fullName, @certificate, @experience, @avatar, @type";
+            string query = "EXEC InsertTeacher @userName, @password, @email, @fullName, @certificate, @experience, @avatar, @type";
 
             // Tạo danh sách tham số
-            SqlParameter[] parameters = new SqlParameter[9];
+            SqlParameter[] parameters = new SqlParameter[8];
 
-            parameters[0] = new SqlParameter("@idOwner", SqlDbType.Int);
-            parameters[0].Value = 1; // Gán idOwner = 1
+            parameters[0] = new SqlParameter("@userName", SqlDbType.NVarChar);
+            parameters[0].Value = userName;
 
-            parameters[1] = new SqlParameter("@userName", SqlDbType.NVarChar);
-            parameters[1].Value = userName;
+            parameters[1] = new SqlParameter("@password", SqlDbType.NVarChar);
+            parameters[1].Value = password;
 
-            parameters[2] = new SqlParameter("@password", SqlDbType.NVarChar);
-            parameters[2].Value = password;
+            parameters[2] = new SqlParameter("@email", SqlDbType.NVarChar);
+            parameters[2].Value = email;
 
-            parameters[3] = new SqlParameter("@email", SqlDbType.NVarChar);
-            parameters[3].Value = email;
+            parameters[3] = new SqlParameter("@fullName", SqlDbType.NVarChar);
+            parameters[3].Value = fullName;
 
-            parameters[4] = new SqlParameter("@fullName", SqlDbType.NVarChar);
-            parameters[4].Value = fullName;
+            parameters[4] = new SqlParameter("@certificate", SqlDbType.NVarChar);
+            parameters[4].Value = certificate;
 
-            parameters[5] = new SqlParameter("@certificate", SqlDbType.NVarChar);
-            parameters[5].Value = certificate;
+            parameters[5] = new SqlParameter("@experience", SqlDbType.Int);
+            parameters[5].Value = experience;
 
-            parameters[6] = new SqlParameter("@experience", SqlDbType.Int);
-            parameters[6].Value = experience;
+            parameters[6] = new SqlParameter("@avatar", SqlDbType.VarBinary);
+            parameters[6].Value = avatar;
 
-            parameters[7] = new SqlParameter("@avatar", SqlDbType.NVarChar);
-            parameters[7].Value = avatar;
-
-            parameters[8] = new SqlParameter("@type", SqlDbType.NVarChar);
-            parameters[8].Value = type;
+            parameters[7] = new SqlParameter("@type", SqlDbType.NVarChar);
+            parameters[7].Value = type;
 
             // Thực thi truy vấn thêm giáo viên
             int result = Dataprovider.Instance.ExecuteNonQuery(query, parameters);
@@ -296,12 +303,15 @@ namespace DoAnCk.RoleOwner
             if (result > 0)
             {
                 MessageBox.Show("Giáo viên đã được thêm thành công!");
+                LoadTeacherFull();
             }
             else
             {
                 MessageBox.Show("Thêm giáo viên thất bại!");
             }
         }
+
+
 
         private void txtIdRegister_TextChanged(object sender, EventArgs e)
         {
@@ -314,6 +324,7 @@ namespace DoAnCk.RoleOwner
 
             // Gọi hàm xóa giáo viên
             DeleteTeacher(teacherId);
+           
         }
         private void DeleteTeacher(string teacherId)
         {
@@ -324,73 +335,97 @@ namespace DoAnCk.RoleOwner
                 return;
             }
 
-            // Câu truy vấn gọi stored procedure
-            string query = "EXEC deleteTeacher @id";
-
-            // Tạo tham số cho stored procedure
-            SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = new SqlParameter("@id", SqlDbType.Int);
-            parameters[0].Value = int.Parse(teacherId); // Chuyển đổi ID thành số nguyên
-
-            try
+            // Chuyển đổi ID giáo viên thành số nguyên
+            int parsedTeacherId;
+            if (!int.TryParse(teacherId, out parsedTeacherId))
             {
-                // Thực thi stored procedure
-                int rowsAffected = Dataprovider.Instance.ExecuteNonQuery(query, parameters);
-
-                // Kiểm tra nếu có bản ghi nào bị xóa
-                if (rowsAffected > 0)
-                {
-                    MessageBox.Show("Xóa giáo viên thành công!");
-                    LoadTeacherFull(); // Tải lại danh sách giáo viên sau khi xóa thành công
-                }
-                else
-                {
-                    MessageBox.Show("Không tìm thấy giáo viên với ID này.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message);
-            }
-        }
-
-        private void guna2GradientButton1_Click_1(object sender, EventArgs e)
-        {
-            string teacherId = txtSearch.Text.Trim(); // Lấy ID giáo viên từ textbox
-
-            if (string.IsNullOrEmpty(teacherId))
-            {
-                MessageBox.Show("Vui lòng nhập ID giáo viên để tìm kiếm!");
+                MessageBox.Show("ID giáo viên không hợp lệ!");
                 return;
             }
 
-            // Tạo truy vấn gọi stored procedure để tìm giáo viên theo ID
-            string query = "EXEC findTeacherById @id";
+           
+                // Gọi lần lượt các stored procedure để xóa dữ liệu liên quan
+                ExecuteStoredProcedure("DeleteRegistrationsByTeacher", parsedTeacherId);
+                ExecuteStoredProcedure("DeleteDocumentsByTeacher", parsedTeacherId);
+                ExecuteStoredProcedure("DeleteCoursesByTeacher", parsedTeacherId);
+                ExecuteStoredProcedure("proc_DeleteTeacher", parsedTeacherId);
 
-            // Tạo danh sách tham số cho stored procedure
+                // Thông báo xóa thành công
+                MessageBox.Show("Xóa giáo viên và các dữ liệu liên quan thành công!");
+                LoadTeacherFull(); // Tải lại danh sách giáo viên sau khi xóa thành công
+                       
+        }
+
+        // Phương thức thực thi stored procedure với tham số TeacherID
+        private void ExecuteStoredProcedure(string procedureName, int teacherId)
+        {
+            // Câu truy vấn gọi stored procedure
+            string query = $"EXEC dbo.{procedureName} @TeacherID";
+
+            // Tạo tham số cho stored procedure
             SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = new SqlParameter("@id", SqlDbType.Int);
-            parameters[0].Value = int.Parse(teacherId); // Chuyển đổi ID sang số nguyên
+            parameters[0] = new SqlParameter("@TeacherID", SqlDbType.Int);
+            parameters[0].Value = teacherId;
 
-            try
-            {
-                // Thực thi truy vấn và lấy kết quả
-                DataTable dt = Dataprovider.Instance.ExecuteQuery(query, parameters);
+            // Thực thi stored procedure
+            Dataprovider.Instance.ExecuteNonQuery(query, parameters);
+        }
 
-                // Hiển thị kết quả tìm kiếm
-                if (dt.Rows.Count > 0)
-                {
-                    ShowTeacher(dt); // Gọi hàm hiển thị danh sách giáo viên
-                }
-                else
-                {
-                    MessageBox.Show("Không tìm thấy giáo viên với ID này.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message);
-            }
+
+        private void guna2GradientButton1_Click_1(object sender, EventArgs e)
+        {
+            // // Lấy ID giáo viên từ textbox
+
+            //if (string.IsNullOrEmpty(teacherId))
+            //{
+            //    MessageBox.Show("Vui lòng nhập ID giáo viên để tìm kiếm!");
+            //    return;
+            //}
+
+            //// Tạo truy vấn gọi stored procedure để tìm giáo viên theo ID
+            //string query = "EXEC findTeacherById @id";
+
+            //// Tạo danh sách tham số cho stored procedure
+            //SqlParameter[] parameters = new SqlParameter[1];
+            //parameters[0] = new SqlParameter("@id", SqlDbType.Int);
+            //parameters[0].Value = int.Parse(teacherId); // Chuyển đổi ID sang số nguyên
+
+            //try
+            //{
+            //    // Thực thi truy vấn và lấy kết quả
+            //    DataTable dt = Dataprovider.Instance.ExecuteQuery(query, parameters);
+
+            //    // Hiển thị kết quả tìm kiếm
+            //    if (dt.Rows.Count > 0)
+            //    {
+            //        ShowTeacher(dt); // Gọi hàm hiển thị danh sách giáo viên
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Không tìm thấy giáo viên với ID này.");
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Lỗi: " + ex.Message);
+            //}
+        }
+
+        private void picImage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2GradientButton6_Click(object sender, EventArgs e)
+        {
+            txtUserName.Text = "";
+            txtPass.Text = "";
+            txtName.Text = "";
+            txtEmail.Text = "";
+            txtCourse.Text="";
+            txtExperience.Text = "";
+            txtCertificate.Text = "";
+            
         }
     }
 }

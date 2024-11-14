@@ -86,5 +86,75 @@ namespace DoAnCk.RoleStudent
                 }
             }
         }
+
+        private void btnAddDocument_Click(object sender, EventArgs e)
+        {
+            //string query = "EXEC procedureInsertDocument @idCourse, @name, @content";
+
+            //// Tạo danh sách tham số để truyền vào truy vấn
+            //SqlParameter[] parameters = new SqlParameter[3];
+            //parameters[0] = new SqlParameter("@idCourse", SqlDbType.NVarChar);
+            //parameters[0].Value = lblIdCourse.Text;
+            //parameters[1] = new SqlParameter("@name", SqlDbType.NVarChar);
+            //parameters[1].Value = txtTitle.Text;
+            //parameters[2] = new SqlParameter("@content", SqlDbType.NVarChar);
+            //parameters[2].Value = txtContent.Text;
+
+            //try
+            //{
+
+            //    Dataprovider.Instance.ExecuteQuery(query, parameters);
+
+            //    // Thông báo khi thêm thành công
+            //    MessageBox.Show("Thêm tài liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //    // Tải lại danh sách tài liệu sau khi thêm
+            //    LoadCourseFull();
+            //}
+            //catch (SqlException ex)
+            //{
+            //    // Hiển thị thông báo lỗi nếu có
+            //    MessageBox.Show("Lỗi SQL: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+        }
+
+        private void btnEditDocument_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtIdDocument.Text) || !int.TryParse(txtIdDocument.Text, out int documentId))
+            {
+                MessageBox.Show("Vui lòng chọn một tài liệu hợp lệ để sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string query = "EXEC procedureUpdateDocument @id, @idCourse, @name, @content";
+
+            // Tạo danh sách tham số để truyền vào truy vấn
+            SqlParameter[] parameters = new SqlParameter[4];
+            parameters[0] = new SqlParameter("@id", SqlDbType.Int);
+            parameters[0].Value = int.Parse(txtIdDocument.Text);  // Lấy ID tài liệu
+            parameters[1] = new SqlParameter("@idCourse", SqlDbType.NVarChar);
+            parameters[1].Value = lblIdCourse.Text;  // Mã khóa học
+            parameters[2] = new SqlParameter("@name", SqlDbType.NVarChar);
+            parameters[2].Value = txtTitle.Text;  // Tiêu đề tài liệu
+            parameters[3] = new SqlParameter("@content", SqlDbType.NVarChar);
+            parameters[3].Value = txtContent.Text;  // Nội dung tài liệu
+
+            try
+            {
+                // Thực thi câu lệnh truy vấn
+                Dataprovider.Instance.ExecuteQuery(query, parameters);
+
+                // Thông báo khi cập nhật thành công
+                MessageBox.Show("Sửa tài liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Tải lại danh sách tài liệu sau khi sửa
+                LoadCourseFull();
+            }
+            catch (SqlException ex)
+            {
+                // Hiển thị thông báo lỗi nếu có
+                MessageBox.Show("Lỗi SQL: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

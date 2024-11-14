@@ -26,25 +26,41 @@ namespace DoAnCk.RoleOwner
         }
         private void PayMoney_Load(object sender, EventArgs e)
         {
-            LoadCourseFull(1);
-            LoadTotalDebt(1);
+            int idStudent=Convert.ToInt32(lblSudentId.Text.ToString());
+            LoadCourseFull(idStudent);
+            LoadTotalDebt(idStudent);
         }
 
         public void LoadCourseFull(int studentId)
         {
-            string query = "EXEC GetCoursesByStudentId @idStudent";
+            string query = "EXEC GetCoursesByStudent @idStudent";
 
             // Tạo danh sách tham số
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = new SqlParameter("@idStudent", SqlDbType.Int);
             parameters[0].Value = studentId;
 
-            // Thực thi truy vấn và nhận DataTable
-            DataTable dt = Dataprovider.Instance.ExecuteQuery(query, parameters);
+            try
+            {
+                // Thực thi truy vấn và nhận DataTable
+                DataTable dt = Dataprovider.Instance.ExecuteQuery(query, parameters);
 
-            // Hiển thị danh sách khóa học
-            ShowCourse(dt);
+                if (dt == null || dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không có khóa học nào được tìm thấy.");
+                }
+                else
+                {
+                    // Hiển thị danh sách khóa học
+                    ShowCourse(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+               
+            }
         }
+
         public void ShowCourse(DataTable dt)
         {
             panelListCourse.Controls.Clear();
@@ -69,34 +85,39 @@ namespace DoAnCk.RoleOwner
         }
         public void LoadTotalDebt(int studentId)
         {
-            // Tạo chuỗi truy vấn để gọi hàm SQL functionCalculateDebt
             string query = "SELECT dbo.functionCalculateDebt(@studentId) AS TotalDebt";
 
-            // Tạo danh sách tham số truyền vào truy vấn
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = new SqlParameter("@studentId", SqlDbType.Int);
             parameters[0].Value = studentId;
 
-            DataTable dt = Dataprovider.Instance.ExecuteQuery(query, parameters);
-
-            if (dt.Rows.Count > 0)
+            try
             {
-                // Lấy tổng số tiền từ cột TotalDebt trong kết quả
-                decimal totalDebt = Convert.ToDecimal(dt.Rows[0]["TotalDebt"]);
+                DataTable dt = Dataprovider.Instance.ExecuteQuery(query, parameters);
 
-                // Hiển thị tổng số tiền nợ ra TextBox
-                txtTotalDebt.Text = totalDebt.ToString("C"); // Định dạng tiền tệ
+                if (dt.Rows.Count > 0)
+                {
+                    decimal totalDebt = Convert.ToDecimal(dt.Rows[0]["TotalDebt"]);
+                    txtTotalDebt.Text = totalDebt.ToString("C");
+                }
+                else
+                {
+                    txtTotalDebt.Text = "0";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                // Nếu không có kết quả, hiển thị thông báo
-                txtTotalDebt.Text = "0";
+               
             }
         }
 
+
         private void guna2GradientButton6_Click(object sender, EventArgs e)
+
         {
-            LoadTotalDebt(1);
+            int idStudent = Convert.ToInt32(lblSudentId.Text.ToString());
+
+            LoadTotalDebt(idStudent);
         }
 
         private void guna2HtmlLabel4_Click(object sender, EventArgs e)

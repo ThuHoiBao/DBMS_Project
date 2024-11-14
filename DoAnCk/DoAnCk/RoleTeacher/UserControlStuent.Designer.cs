@@ -90,7 +90,7 @@
             // 
             // picImage
             // 
-            this.picImage.Image = global::DoAnCk.Properties.Resources._391566479_1319251892287625_6431812767372344325_n;
+            this.picImage.Image = global::DoAnCk.Properties.Resources.aaaa;
             this.picImage.ImageRotate = 0F;
             this.picImage.Location = new System.Drawing.Point(134, 3);
             this.picImage.Name = "picImage";

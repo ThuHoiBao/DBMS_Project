@@ -221,6 +221,7 @@
     <Compile Include="Admin\Assigns.cs" />
     <Compile Include="Dataprovider.cs" />
     <Compile Include="Global.cs" />
+    <Compile Include="Login\Config.cs" />
     <Compile Include="Login\FogetAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -668,8 +669,12 @@
     <Content Include="DataBase\DataBase.sql" />
     <Content Include="DataBase\hqtcsdl.sql" />
     <Content Include="License-LGPL.txt" />
+    <None Include="Resources\1a.png" />
     <Content Include="Resources\38faf2cbf855e3cb7fdb7a0f66c43502.jpg" />
     <Content Include="Resources\5f1744696261c3ebca5f0ea485d93d47.jpg" />
+    <None Include="Resources\aaaa.png" />
+    <None Include="Resources\a.png" />
+    <None Include="Resources\aa.png" />
     <Content Include="Resources\approve %281%29.png" />
     <Content Include="Resources\approved.png" />
     <Content Include="Resources\arrow.png" />

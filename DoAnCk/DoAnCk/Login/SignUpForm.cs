@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DoAnCk.Login;
+using Emgu.CV.CvEnum;
 
 namespace DoAnCk
 {
@@ -53,22 +55,25 @@ namespace DoAnCk
         }
         public bool InsertStudent(string userName, string password, string fullName, string email, string phoneNumber, DateTime dateOfBirth, string target, string address, byte[] avatar, string type)
         {
+            int userType = 1;
+            Config.SetCredentials(txtUserName.Text, txtPassWord.Text);
+            Dataprovider.Instance.SetConnectionStringByRole(userType);
             // Câu lệnh EXEC SQL với stored procedure
             string query = "EXEC InsertStudent @userName, @password, @fullName, @email, @phoneNumber, @dateOfBirth, @target, @address, @avatar, @type";
 
             // Tạo danh sách tham số
             SqlParameter[] parameters = new SqlParameter[]
             {
-        new SqlParameter("@userName", SqlDbType.NVarChar) { Value = userName },
-        new SqlParameter("@password", SqlDbType.NVarChar) { Value = password },
-        new SqlParameter("@fullName", SqlDbType.NVarChar) { Value = fullName },
-        new SqlParameter("@email", SqlDbType.NVarChar) { Value = email },
-        new SqlParameter("@phoneNumber", SqlDbType.NVarChar) { Value = phoneNumber },
-        new SqlParameter("@dateOfBirth", SqlDbType.DateTime) { Value = dateOfBirth },
-        new SqlParameter("@target", SqlDbType.NVarChar) { Value = target },
-        new SqlParameter("@address", SqlDbType.NVarChar) { Value = address },
-        new SqlParameter("@avatar", SqlDbType.VarBinary) { Value = avatar },
-        new SqlParameter("@type", SqlDbType.NVarChar) { Value = type }
+                new SqlParameter("@userName", SqlDbType.NVarChar) { Value = userName },
+                new SqlParameter("@password", SqlDbType.NVarChar) { Value = password },
+                new SqlParameter("@fullName", SqlDbType.NVarChar) { Value = fullName },
+                new SqlParameter("@email", SqlDbType.NVarChar) { Value = email },
+                new SqlParameter("@phoneNumber", SqlDbType.NVarChar) { Value = phoneNumber },
+                new SqlParameter("@dateOfBirth", SqlDbType.DateTime) { Value = dateOfBirth },
+                new SqlParameter("@target", SqlDbType.NVarChar) { Value = target },
+                new SqlParameter("@address", SqlDbType.NVarChar) { Value = address },
+                new SqlParameter("@avatar", SqlDbType.VarBinary) { Value = avatar },
+                new SqlParameter("@type", SqlDbType.NVarChar) { Value = type }
             };
 
             // Thực hiện câu lệnh và kiểm tra kết quả

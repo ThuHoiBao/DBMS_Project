@@ -73,9 +73,49 @@ namespace DoAnCk.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1a {
+            get {
+                object obj = ResourceManager.GetObject("1a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _391566479_1319251892287625_6431812767372344325_n {
             get {
                 object obj = ResourceManager.GetObject("391566479_1319251892287625_6431812767372344325_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap a {
+            get {
+                object obj = ResourceManager.GetObject("a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap aa {
+            get {
+                object obj = ResourceManager.GetObject("aa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap aaaa {
+            get {
+                object obj = ResourceManager.GetObject("aaaa", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

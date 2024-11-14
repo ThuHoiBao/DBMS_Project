@@ -27,8 +27,10 @@ namespace DoAnCk.RoleTeacher
 
         private void TeacherSalary_Load(object sender, EventArgs e)
         {
-            LoadCoursesByTeacher(1);
-            LoadTotalSalary(1);
+            int idTeacher = Convert.ToInt32(lblSudentId.Text);
+
+            LoadCoursesByTeacher(idTeacher);
+            LoadTotalSalary(idTeacher);
         }
         public void LoadCoursesByTeacher(int teacherId)
         {
@@ -89,8 +91,9 @@ namespace DoAnCk.RoleTeacher
             }
         }
 
+        private void guna2HtmlLabel4_Click(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
 }

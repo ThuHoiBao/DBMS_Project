@@ -36,8 +36,9 @@
             this.panelListCourse = new System.Windows.Forms.FlowLayoutPanel();
             this.txtTotalDebt = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2GradientButton6 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2GradientButton6 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.lblSudentId = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -143,6 +144,20 @@
             this.guna2HtmlLabel2.TabIndex = 35;
             this.guna2HtmlLabel2.Text = "Số tiền cần đóng:";
             // 
+            // guna2HtmlLabel4
+            // 
+            this.guna2HtmlLabel4.AutoSize = false;
+            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel4.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(147, 12);
+            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(496, 27);
+            this.guna2HtmlLabel4.TabIndex = 37;
+            this.guna2HtmlLabel4.Text = "Danh sách các môn học đã được xác nhận\r\n";
+            this.guna2HtmlLabel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.guna2HtmlLabel4.Click += new System.EventHandler(this.guna2HtmlLabel4_Click);
+            // 
             // guna2GradientButton6
             // 
             this.guna2GradientButton6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -162,25 +177,21 @@
             this.guna2GradientButton6.TabIndex = 36;
             this.guna2GradientButton6.Click += new System.EventHandler(this.guna2GradientButton6_Click);
             // 
-            // guna2HtmlLabel4
+            // lblSudentId
             // 
-            this.guna2HtmlLabel4.AutoSize = false;
-            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel4.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(147, 12);
-            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(496, 27);
-            this.guna2HtmlLabel4.TabIndex = 37;
-            this.guna2HtmlLabel4.Text = "Danh sách các môn học đã được xác nhận\r\n";
-            this.guna2HtmlLabel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.guna2HtmlLabel4.Click += new System.EventHandler(this.guna2HtmlLabel4_Click);
+            this.lblSudentId.BackColor = System.Drawing.Color.Transparent;
+            this.lblSudentId.Location = new System.Drawing.Point(1051, 21);
+            this.lblSudentId.Name = "lblSudentId";
+            this.lblSudentId.Size = new System.Drawing.Size(108, 18);
+            this.lblSudentId.TabIndex = 38;
+            this.lblSudentId.Text = "guna2HtmlLabel2";
             // 
             // PayMoney
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1459, 703);
+            this.Controls.Add(this.lblSudentId);
             this.Controls.Add(this.guna2HtmlLabel4);
             this.Controls.Add(this.guna2GradientButton6);
             this.Controls.Add(this.guna2HtmlLabel2);
@@ -194,6 +205,7 @@
             this.Load += new System.EventHandler(this.PayMoney_Load);
             this.guna2Panel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -209,5 +221,6 @@
         public Guna.UI2.WinForms.Guna2GradientButton txtTotalDebt;
         public Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton6;
         public Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
+        public Guna.UI2.WinForms.Guna2HtmlLabel lblSudentId;
     }
 }

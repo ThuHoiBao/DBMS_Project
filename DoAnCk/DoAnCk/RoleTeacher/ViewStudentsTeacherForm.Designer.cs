@@ -419,12 +419,12 @@
             // 
             // picImage
             // 
-            this.picImage.Image = global::DoAnCk.Properties.Resources.avatar_trang_4;
+            this.picImage.Image = global::DoAnCk.Properties.Resources.aaaa;
             this.picImage.ImageRotate = 0F;
-            this.picImage.Location = new System.Drawing.Point(227, 98);
+            this.picImage.Location = new System.Drawing.Point(222, 98);
             this.picImage.Name = "picImage";
             this.picImage.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.picImage.Size = new System.Drawing.Size(105, 98);
+            this.picImage.Size = new System.Drawing.Size(129, 114);
             this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picImage.TabIndex = 8;
             this.picImage.TabStop = false;

@@ -83,6 +83,7 @@ namespace DoAnCk.RoleStudent
         private void guna2Button3_Click(object sender, EventArgs e)
         {
             PayMoney paymoney = new PayMoney();
+            paymoney.lblSudentId.Text=lblIdStudent.Text;
             OpenForm(paymoney);
         }
 
@@ -94,6 +95,11 @@ namespace DoAnCk.RoleStudent
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
         {
 
+
+        }
+
+        private void guna2Panel1_Paint_1(object sender, PaintEventArgs e)
+        {
 
         }
     }

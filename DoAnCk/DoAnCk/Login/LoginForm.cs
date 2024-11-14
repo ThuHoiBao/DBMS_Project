@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using DoAnCk.Login;
 namespace DoAnCk
 {
     public partial class LoginForm : Form
@@ -109,62 +109,65 @@ namespace DoAnCk
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             int userType;
-            
             DataTable dt = new DataTable();
 
-            // Xác định loại người dùng dựa trên lựa chọn của comboboxAccount
             if (comboboxAccount.Text == "Administrator")
             {
                 userType = 1;
+                Config.SetCredentials(txtNameAccount.Text, txtPassword.Text);
+                Dataprovider.Instance.SetConnectionStringByRole(userType);
                 string procedureName = "EXEC LoginOwner @userName,  @password";
                 SqlParameter[] parameters = new SqlParameter[2];
                 parameters[0] = new SqlParameter("@userName", SqlDbType.NVarChar);
                 parameters[0].Value = txtNameAccount.Text;
                 parameters[1] = new SqlParameter("@password", SqlDbType.NVarChar);
                 parameters[1].Value = txtPassword.Text;
-                // Truyền stored procedure vào ExecuteQuery mà không cần "EXEC"
                 dt = Dataprovider.Instance.ExecuteQuery(procedureName, parameters);
-
             }
             else if (comboboxAccount.Text == "Teacher")
             {
                 userType = 2;
-               string procedureName = "EXEC LoginTeacher @userName,  @password";
+                Config.SetCredentials(txtNameAccount.Text, txtPassword.Text);
+                Dataprovider.Instance.SetConnectionStringByRole(userType);
+                string procedureName = "EXEC LoginTeacher @userName,  @password";
                 SqlParameter[] parameters = new SqlParameter[2];
                 parameters[0] = new SqlParameter("@userName", SqlDbType.NVarChar);
                 parameters[0].Value = txtNameAccount.Text;
                 parameters[1] = new SqlParameter("@password", SqlDbType.NVarChar);
                 parameters[1].Value = txtPassword.Text;
-
-                // Truyền stored procedure vào ExecuteQuery mà không cần "EXEC"
                 dt = Dataprovider.Instance.ExecuteQuery(procedureName, parameters);
             }
             else
             {
                 userType = 3;
-               string procedureName = "EXEC LoginStudent @userName, @password";
+                Config.SetCredentials(txtNameAccount.Text, txtPassword.Text);
+                Dataprovider.Instance.SetConnectionStringByRole(userType);
+                string procedureName = "EXEC LoginStudent @userName, @password";
                 SqlParameter[] parameters = new SqlParameter[2];
-                parameters[0] = new SqlParameter("@userName",SqlDbType.NVarChar);
+                parameters[0] = new SqlParameter("@userName", SqlDbType.NVarChar);
                 parameters[0].Value = txtNameAccount.Text;
                 parameters[1] = new SqlParameter("@password", SqlDbType.NVarChar);
                 parameters[1].Value = txtPassword.Text;
-                // Truyền stored procedure vào ExecuteQuery mà không cần "EXEC"
                 dt = Dataprovider.Instance.ExecuteQuery(procedureName, parameters);
             }
 
-            // Tạo danh sách tham số
-
-
-            // Kiểm tra kết quả trả về
             if (dt.Rows.Count > 0)
             {
-                // Đăng nhập thành công, lấy user_id từ kết quả
                 int userId = Convert.ToInt32(dt.Rows[0]["id"]);
                 string fullName = dt.Rows[0]["fullName"].ToString();
 
+                // Đặt thông tin đăng nhập trong `Config` cho Teacher hoặc Student
+                if (userType != 1) // Chỉ lưu thông tin đăng nhập khi không phải là Administrator
+                {
+                    Config.SetCredentials(txtNameAccount.Text, txtPassword.Text);
+                }
+
+                // Thiết lập chuỗi kết nối dựa trên loại người dùng
+                Dataprovider.Instance.SetConnectionStringByRole(userType);
+
+                // Hiển thị thông báo và mở form dựa trên vai trò
                 MessageBox.Show("Đăng Nhập Thành Công !!!!", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Kiểm tra loại người dùng và mở form tương ứng
                 if (userType == 1) // Administrator
                 {
                     MainOwner mainOwner = new MainOwner();
@@ -176,8 +179,8 @@ namespace DoAnCk
                 else if (userType == 2) // Teacher
                 {
                     MainOfTeacherForm mainOfTeacherForm = new MainOfTeacherForm();
-                    mainOfTeacherForm.lblSudentId.Text =userId.ToString();
-                    mainOfTeacherForm.lblUserName.Text= "Xin Chào," + fullName;
+                    mainOfTeacherForm.lblSudentId.Text = userId.ToString();
+                    mainOfTeacherForm.lblUserName.Text = "Xin Chào," + fullName;
                     this.Hide();
                     mainLoginForm.Hide();
                     mainOfTeacherForm.Show();
@@ -186,7 +189,7 @@ namespace DoAnCk
                 {
                     Main main = new Main();
                     main.lblIdStudent.Text = userId.ToString();
-                    main.lblUserName.Text ="Xin Chào,"+ fullName;
+                    main.lblUserName.Text = "Xin Chào," + fullName;
                     this.Hide();
                     mainLoginForm.Hide();
                     main.Show();
@@ -194,7 +197,6 @@ namespace DoAnCk
             }
             else
             {
-                // Nếu không tìm thấy bản ghi phù hợp, thông báo lỗi
                 MessageBox.Show("Incorrect Username, Password, or Account Type", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

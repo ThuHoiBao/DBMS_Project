@@ -51,6 +51,7 @@
             this.picImage = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.panelListDocument = new System.Windows.Forms.FlowLayoutPanel();
             this.panelAccount = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnEditDocument = new Guna.UI2.WinForms.Guna2GradientButton();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -363,6 +364,7 @@
             // 
             // panelAccount
             // 
+            this.panelAccount.Controls.Add(this.btnEditDocument);
             this.panelAccount.Controls.Add(this.txtIdDocument);
             this.panelAccount.Controls.Add(this.guna2GradientButton6);
             this.panelAccount.Controls.Add(this.txtContent);
@@ -375,6 +377,25 @@
             this.panelAccount.Name = "panelAccount";
             this.panelAccount.Size = new System.Drawing.Size(605, 636);
             this.panelAccount.TabIndex = 41;
+            // 
+            // btnEditDocument
+            // 
+            this.btnEditDocument.BorderRadius = 5;
+            this.btnEditDocument.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditDocument.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditDocument.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditDocument.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditDocument.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEditDocument.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnEditDocument.FillColor2 = System.Drawing.Color.Teal;
+            this.btnEditDocument.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnEditDocument.ForeColor = System.Drawing.Color.White;
+            this.btnEditDocument.Location = new System.Drawing.Point(41, 584);
+            this.btnEditDocument.Name = "btnEditDocument";
+            this.btnEditDocument.Size = new System.Drawing.Size(136, 43);
+            this.btnEditDocument.TabIndex = 29;
+            this.btnEditDocument.Text = "Edit";
+            this.btnEditDocument.Click += new System.EventHandler(this.btnEditDocument_Click);
             // 
             // Document
             // 
@@ -428,5 +449,6 @@
         private System.Windows.Forms.Label label1;
         public Guna.UI2.WinForms.Guna2CirclePictureBox picImage;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton3;
+        private Guna.UI2.WinForms.Guna2GradientButton btnEditDocument;
     }
 }

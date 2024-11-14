@@ -23,6 +23,8 @@ namespace DoAnCk.RoleOwner
         private void CourseOwner_Load(object sender, EventArgs e)
         {
             LoadCourseFull();
+            LoadTeacherNamesToComboBox();
+
         }
         public void LoadCourseFull()
         {
@@ -67,7 +69,7 @@ namespace DoAnCk.RoleOwner
                 txtIdCourse.Text = ucCourse.lblCourseId.Text;
 
                 // Thực thi truy vấn lấy chi tiết khóa học
-                string query = "EXEC procedureCourseInfoById @idCourse";
+                string query = "EXEC procedureCourseInfoByIdTeacher @idCourse";
 
                 SqlParameter[] parameters = new SqlParameter[1];
                 parameters[0] = new SqlParameter("@idCourse", SqlDbType.NVarChar);
@@ -77,16 +79,36 @@ namespace DoAnCk.RoleOwner
 
                 if (dt.Rows.Count > 0)
                 {
-                    txtIdCourse.Text = dt.Rows[0]["id"].ToString();
+                    // Cập nhật thông tin chi tiết khóa học vào các textbox
+                    txtIdCourse.Text = dt.Rows[0]["CourseId"].ToString();
                     txtTotalLesson.Text = dt.Rows[0]["totalLession"].ToString();
-                    txtNameCourse.Text = dt.Rows[0]["name"].ToString();
-                    txtDes.Text = dt.Rows[0]["description"].ToString();
+                    txtNameCourse.Text = dt.Rows[0]["CourseName"].ToString();
+                    txtDes.Text = dt.Rows[0]["CourseDescription"].ToString();
                     txtNumber.Text = dt.Rows[0]["timeLession"].ToString();
                     txtPrice.Text = dt.Rows[0]["price"].ToString();
                     txtTotalStudents.Text = dt.Rows[0]["totalStudent"].ToString();
+
+                    // Hiển thị tên giảng viên vào combobox với id làm ValueMember
+                    DataTable teacherTable = new DataTable();
+                    teacherTable.Columns.Add("TeacherId", typeof(int));
+                    teacherTable.Columns.Add("TeacherName", typeof(string));
+
+                    // Thêm tên và id của giảng viên vào DataTable
+                    int teacherId = Convert.ToInt32(dt.Rows[0]["IdTeacher"]); // Giả sử `IdTeacher` là tên cột chứa id
+                    string teacherName = dt.Rows[0]["TeacherName"].ToString();
+                    teacherTable.Rows.Add(teacherId, teacherName);
+
+                    // Cập nhật ComboBox
+                    cbTeacherName.DataSource = teacherTable;
+                    cbTeacherName.DisplayMember = "TeacherName";
+                    cbTeacherName.ValueMember = "TeacherId"; // Sử dụng "TeacherId" thay vì "IdTeacher"
+                    cbTeacherName.SelectedIndex = 0; // Chọn mục đầu tiên
                 }
             }
         }
+
+
+
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
@@ -130,7 +152,34 @@ namespace DoAnCk.RoleOwner
         private void guna2GradientButton6_Click(object sender, EventArgs e)
         {
             RefreshCourseInfo();
+            LoadTeacherNamesToComboBox();
         }
+        public void LoadTeacherNamesToComboBox()
+        {
+            string query = "SELECT Id, fullName FROM Teacher";  // Thêm TeacherId để có SelectedValue hợp lệ
+
+            DataTable dt = Dataprovider.Instance.ExecuteQuery(query);
+
+            if (dt.Rows.Count > 0)
+            {
+                // Đặt lại DataSource thay vì sử dụng Items.Clear()
+                cbTeacherName.DataSource = null; // Đặt DataSource thành null trước khi gán dữ liệu mới
+                cbTeacherName.DisplayMember = "fullName";
+                cbTeacherName.ValueMember = "Id";
+                cbTeacherName.DataSource = dt;
+
+                cbTeacherName.SelectedIndex = 0;  // Chọn giảng viên đầu tiên
+            }
+            else
+            {
+                cbTeacherName.DataSource = null;
+                cbTeacherName.Items.Add("No teachers found");
+                cbTeacherName.SelectedIndex = 0;
+            }
+        }
+
+
+
         public void RefreshCourseInfo()
         {
             // Làm trống tất cả các TextBox
@@ -146,8 +195,27 @@ namespace DoAnCk.RoleOwner
 
         private void btnAddDocument_Click(object sender, EventArgs e)
         {
-            AddCourse();
+            // Kiểm tra xem cbTeacherName đã có giá trị hợp lệ hay chưa
+            if (cbTeacherName.SelectedValue != null)
+            {
+                // Chuyển đổi giá trị SelectedValue thành int (ID giảng viên)
+                int selectedTeacherId;
+                if (int.TryParse(cbTeacherName.SelectedValue.ToString(), out selectedTeacherId))
+                {
+                    txtIdTeacher.Text = selectedTeacherId.ToString();
+                    AddCourse();
+                }
+                else
+                {
+                    MessageBox.Show("Không thể lấy ID giảng viên từ lựa chọn.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn giảng viên hợp lệ.");
+            }
         }
+
         private void AddCourse()
         {
             // Lấy dữ liệu từ các TextBox
@@ -158,13 +226,15 @@ namespace DoAnCk.RoleOwner
             int price = int.Parse(txtPrice.Text);
             int totalLession = int.Parse(txtTotalLesson.Text);
             int totalStudent = int.Parse(txtTotalStudents.Text);
-            int idTeacher = int.Parse(txtIdTeacher.Text);  // Bạn cần thêm TextBox hoặc nhập ID giảng viên
+            int idTeacher = int.Parse(txtIdTeacher.Text);
 
             // Chuỗi truy vấn cho thủ tục addCourse
             string query = "EXEC addCourse @id, @name, @description, @timeLession, @price, @totalLession, @totalStudent, @idTeacher";
 
             // Tạo danh sách các tham số
             SqlParameter[] parameters = new SqlParameter[8];
+
+            // Thêm các tham số vào mảng `parameters`
             parameters[0] = new SqlParameter("@id", SqlDbType.NVarChar);
             parameters[0].Value = idCourse;
 
@@ -203,6 +273,7 @@ namespace DoAnCk.RoleOwner
             }
         }
 
+
         private void btnRemoveDocument_Click(object sender, EventArgs e)
         {
             string courseId = txtIdCourse.Text.Trim();
@@ -220,7 +291,7 @@ namespace DoAnCk.RoleOwner
             }
 
             // Câu truy vấn gọi stored procedure
-            string query = "EXEC deleteCourse @id";
+            string query = "EXEC DeleteCourseAndDependencies @id";
 
             // Tạo tham số cho stored procedure
             SqlParameter[] parameters = new SqlParameter[1];

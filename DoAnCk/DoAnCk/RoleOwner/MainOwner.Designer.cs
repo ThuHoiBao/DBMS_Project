@@ -29,23 +29,21 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btChart = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.btnTeacher = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblUserName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panelHome = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.btnTeacher = new Guna.UI2.WinForms.Guna2Button();
-            this.picImage = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.btChart = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -57,6 +55,17 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1545, 86);
             this.guna2Panel1.TabIndex = 15;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = global::DoAnCk.Properties.Resources.home_page;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(490, 12);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 1;
+            this.guna2PictureBox1.TabStop = false;
             // 
             // guna2HtmlLabel1
             // 
@@ -82,58 +91,25 @@
             this.panel1.Size = new System.Drawing.Size(233, 754);
             this.panel1.TabIndex = 14;
             // 
-            // panel2
+            // btChart
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
-            this.panel2.Controls.Add(this.guna2Panel2);
-            this.panel2.Controls.Add(this.lblUserName);
-            this.panel2.Controls.Add(this.picImage);
-            this.panel2.Location = new System.Drawing.Point(0, -2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(233, 85);
-            this.panel2.TabIndex = 13;
-            // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.Location = new System.Drawing.Point(232, 85);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(949, 547);
-            this.guna2Panel2.TabIndex = 8;
-            // 
-            // lblUserName
-            // 
-            this.lblUserName.AutoSize = false;
-            this.lblUserName.BackColor = System.Drawing.Color.Transparent;
-            this.lblUserName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblUserName.Location = new System.Drawing.Point(68, 32);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(214, 30);
-            this.lblUserName.TabIndex = 2;
-            this.lblUserName.Text = "Trần Anh Thư";
-            this.lblUserName.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panelHome
-            // 
-            this.panelHome.AutoSize = true;
-            this.panelHome.BackgroundImage = global::DoAnCk.Properties.Resources.khuonvien;
-            this.panelHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelHome.Location = new System.Drawing.Point(232, 83);
-            this.panelHome.Name = "panelHome";
-            this.panelHome.Size = new System.Drawing.Size(1545, 750);
-            this.panelHome.TabIndex = 16;
-            this.panelHome.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHome_Paint);
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = global::DoAnCk.Properties.Resources.home_page;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(490, 12);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(50, 50);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 1;
-            this.guna2PictureBox1.TabStop = false;
+            this.btChart.BorderRadius = 10;
+            this.btChart.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btChart.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btChart.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btChart.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btChart.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(198)))), ((int)(((byte)(227)))));
+            this.btChart.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold);
+            this.btChart.ForeColor = System.Drawing.Color.White;
+            this.btChart.Image = global::DoAnCk.Properties.Resources.delete;
+            this.btChart.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btChart.ImageSize = new System.Drawing.Size(35, 35);
+            this.btChart.Location = new System.Drawing.Point(-2, 141);
+            this.btChart.Name = "btChart";
+            this.btChart.Size = new System.Drawing.Size(236, 59);
+            this.btChart.TabIndex = 6;
+            this.btChart.Text = "Static";
+            this.btChart.Click += new System.EventHandler(this.btChart_Click);
             // 
             // guna2Button1
             // 
@@ -195,37 +171,46 @@
             this.btnTeacher.Text = "Teacher";
             this.btnTeacher.Click += new System.EventHandler(this.btnTeacher_Click);
             // 
-            // picImage
+            // panel2
             // 
-            this.picImage.Image = global::DoAnCk.Properties.Resources._391566479_1319251892287625_6431812767372344325_n;
-            this.picImage.ImageRotate = 0F;
-            this.picImage.Location = new System.Drawing.Point(12, 22);
-            this.picImage.Name = "picImage";
-            this.picImage.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.picImage.Size = new System.Drawing.Size(50, 49);
-            this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picImage.TabIndex = 1;
-            this.picImage.TabStop = false;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
+            this.panel2.Controls.Add(this.guna2Panel2);
+            this.panel2.Controls.Add(this.lblUserName);
+            this.panel2.Location = new System.Drawing.Point(0, -2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(233, 85);
+            this.panel2.TabIndex = 13;
             // 
-            // btChart
+            // guna2Panel2
             // 
-            this.btChart.BorderRadius = 10;
-            this.btChart.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btChart.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btChart.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btChart.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btChart.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(198)))), ((int)(((byte)(227)))));
-            this.btChart.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold);
-            this.btChart.ForeColor = System.Drawing.Color.White;
-            this.btChart.Image = global::DoAnCk.Properties.Resources.delete;
-            this.btChart.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btChart.ImageSize = new System.Drawing.Size(35, 35);
-            this.btChart.Location = new System.Drawing.Point(-2, 141);
-            this.btChart.Name = "btChart";
-            this.btChart.Size = new System.Drawing.Size(236, 59);
-            this.btChart.TabIndex = 6;
-            this.btChart.Text = "Static";
-            this.btChart.Click += new System.EventHandler(this.btChart_Click);
+            this.guna2Panel2.Location = new System.Drawing.Point(232, 85);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(949, 547);
+            this.guna2Panel2.TabIndex = 8;
+            // 
+            // lblUserName
+            // 
+            this.lblUserName.AutoSize = false;
+            this.lblUserName.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblUserName.Location = new System.Drawing.Point(30, 3);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(282, 83);
+            this.lblUserName.TabIndex = 2;
+            this.lblUserName.Text = "Trần Anh Thư";
+            this.lblUserName.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panelHome
+            // 
+            this.panelHome.AutoSize = true;
+            this.panelHome.BackgroundImage = global::DoAnCk.Properties.Resources.khuonvien;
+            this.panelHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelHome.Location = new System.Drawing.Point(232, 83);
+            this.panelHome.Name = "panelHome";
+            this.panelHome.Size = new System.Drawing.Size(1545, 750);
+            this.panelHome.TabIndex = 16;
+            this.panelHome.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHome_Paint);
             // 
             // MainOwner
             // 
@@ -240,10 +225,9 @@
             this.Name = "MainOwner";
             this.Text = "MainOwner";
             this.guna2Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,7 +246,6 @@
         private System.Windows.Forms.Panel panel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         public Guna.UI2.WinForms.Guna2HtmlLabel lblUserName;
-        public Guna.UI2.WinForms.Guna2CirclePictureBox picImage;
         private Guna.UI2.WinForms.Guna2Button btChart;
     }
 }
